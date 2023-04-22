@@ -1,0 +1,144 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  color: #28282f;
+  margin: 0em;
+}
+
+body {
+  margin: 0em; 
+  padding: 0em;
+  overflow: hidden; /* Hide scrollbars */
+  font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
+    'Lucida Grande', sans-serif;
+}
+
+p,
+img,
+div,
+canvas {
+  vertical-align: top;
+}
+
+::-moz-selection { /* Code for Firefox */
+  background: #34495e;
+  background-color: #34495e;
+  color: #fff;
+}
+
+::selection { /* Code for Chrome, Safari and Opera */
+  background: #34495e;
+  background-color: #34495e;
+  color: #fff;
+}
+
+.hide { /* Hide elements */
+  display: none;
+}
+
+#menu {
+  width: 48em;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 0.9em;
+
+  text-align: center;
+  font-size: 1.2em;
+
+  background-color: #fff;
+  opacity: 1;
+
+  background: #ffffff;
+
+  -webkit-box-shadow: 0em 0.25em 0.75em rgba(124, 124, 124, 0.5);
+  -moz-box-shadow: 0em 0.25em 0.75em rgba(124, 124, 124, 0.5);
+  box-shadow: 0em 0.25em 0.75em rgba(124, 124, 124, 0.5);
+}
+
+#menu #img_container {
+  height: 14.5em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+
+  border-top-left-radius: 0.9em; 
+  border-top-right-radius: 0.9em;
+}
+
+#menu #img_container img {
+  flex-shrink: 0; /* Prevent image from shrinking */
+  width: 105%;
+}
+
+#menu #content {
+  padding: 0.5em;
+}
+
+#menu #content div {
+  margin-bottom: 1em;
+}
+
+#menu h1 {
+  font-family: 'Oswald';
+  letter-spacing: 0.25em;
+}
+
+#menu p {
+  font-family: 'Lato';
+  margin: 0em;
+}
+
+#menu #play_button {
+  display: inline-block; 
+  border-radius: 0.9em;
+  border: solid #48484f 0.1em;
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  padding-top: 0.12em;
+  padding-bottom: 0.12em;
+
+  margin-bottom: 1.5em;
+  transition: all 0.4s; /* Transition effect when hovering */
+}
+
+#menu #play_button:hover {
+  border: solid #2323be 0.1em;
+  color: #2323be;
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+#menu #play_button p {
+  font-family: 'Oswald';
+  letter-spacing: 0.125em;
+  color: #48484f;
+  font-size: 1.3em;
+  transition: all 0.4s;
+}
+
+#menu #play_button:hover p {
+  color: #2323be;
+  transition: all 0.4s;
+}
+
+#background_menu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color: #111;
+  opacity: 0.125;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
