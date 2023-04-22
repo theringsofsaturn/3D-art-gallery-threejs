@@ -38,17 +38,19 @@ scene.add(cube); // add cube to scene
 document.addEventListener('keydown', onKeyDown, false);
 
 // Texture of the floor
-const floorTexture = new THREE.ImageUtils.loadTexture('img/Floor.jpg'); // ImageUtils is deprecated in the newer versions of THREE.js
-floorTexture.wrapS = THREE.RepeatWrapping; // wrapS is horizonatl direction
-floorTexture.wrapT = THREE.RepeatWrapping; // wrapT the vertical direction
-floorTexture.repeat.set(20, 20); // how many times to repeat the texture
+const textureLoader = new THREE.TextureLoader();
+const floorTexture = textureLoader.load('img/Floor.jpg');
+floorTexture.wrapS = THREE.RepeatWrapping;
+floorTexture.wrapT = THREE.RepeatWrapping;
+floorTexture.repeat.set(20, 20);
 
 // let floorTexture = new THREE.TextureLoader().load('img/Floor.jpg');
 // textureLoader.load('img/Floor.jpg');cds
 
 // Create the floor plane.
 const planeGeometry = new THREE.PlaneBufferGeometry(45, 45); // BoxGeometry is the shape of the object
-const planeMaterial = new THREE.MeshBasicMaterial({ // MeshBasicMaterial is the look of the object (color or texture)
+const planeMaterial = new THREE.MeshBasicMaterial({
+  // MeshBasicMaterial is the look of the object (color or texture)
   map: floorTexture, // the texture
   side: THREE.DoubleSide,
 });
@@ -67,7 +69,7 @@ scene.add(wallGroup); // add the group to the scene, then any child added to the
 // Front Wall
 const frontWall = new THREE.Mesh( // Mesh class that has geometry and material inside
   new THREE.BoxGeometry(50, 20, 0.001), // geometry
-  new THREE.MeshLambertMaterial({ color: 'green' }) // Lambert material is for non-shiny surfaces 
+  new THREE.MeshLambertMaterial({ color: 'green' }) // Lambert material is for non-shiny surfaces
 );
 
 frontWall.position.z = -20; // push the wall forward in the Z axis
@@ -75,7 +77,8 @@ frontWall.position.z = -20; // push the wall forward in the Z axis
 // Left Wall
 const leftWall = new THREE.Mesh( // Mesh class that has geometry and material inside
   new THREE.BoxGeometry(50, 20, 0.001), // geometry
-  new THREE.MeshLambertMaterial({ //  Lambert material is for non-shiny surfaces 
+  new THREE.MeshLambertMaterial({
+    //  Lambert material is for non-shiny surfaces
     color: 'red',
   })
 );
@@ -86,7 +89,8 @@ leftWall.position.x = -20; // -20 is for 20 units left
 // Right Wall
 const rightWall = new THREE.Mesh( // Mesh class that has geometry and material inside
   new THREE.BoxGeometry(50, 20, 0.001), // geometry
-  new THREE.MeshLambertMaterial({ // Lambert material is for non-shiny surfaces 
+  new THREE.MeshLambertMaterial({
+    // Lambert material is for non-shiny surfaces
     color: 'yellow',
   })
 );
@@ -104,7 +108,8 @@ for (let i = 0; i < wallGroup.children.length; i++) {
 
 // Create the ceiling
 const ceilingGeometry = new THREE.PlaneBufferGeometry(50, 50); // BoxGeometry is the shape the object
-const ceilingMaterial = new THREE.MeshLambertMaterial({ // Lambert material is for non-shiny surfaces 
+const ceilingMaterial = new THREE.MeshLambertMaterial({
+  // Lambert material is for non-shiny surfaces
   color: 'blue',
 });
 const ceilingPlane = new THREE.Mesh(ceilingGeometry, ceilingMaterial); // create ceiling with geometry and material
@@ -114,25 +119,53 @@ ceilingPlane.position.y = 12;
 
 scene.add(ceilingPlane);
 
+// Create a painting
+function createPainting(imageUrl, width, height, position) {
+  const textureLoader = new THREE.TextureLoader();
+  const paintingTexture = textureLoader.load(imageUrl);
+  const paintingMaterial = new THREE.MeshBasicMaterial({
+    map: paintingTexture,
+  });
+  const paintingGeometry = new THREE.PlaneBufferGeometry(width, height);
+  const painting = new THREE.Mesh(paintingGeometry, paintingMaterial);
+  painting.position.set(position.x, position.y, position.z);
+  return painting;
+}
+
+// Create paintings and add them to the scene
+const painting1 = createPainting(
+  './img/artworks/0.jpg',
+  10,
+  5,
+  new THREE.Vector3(-10, 5, -19.99)
+);
+const painting2 = createPainting(
+  './img/artworks/1.jpg',
+  10,
+  5,
+  new THREE.Vector3(10, 5, -19.99)
+);
+scene.add(painting1, painting2);
+
 // function when a key is pressed, execute this function
 function onKeyDown(event) {
   let keycode = event.which;
 
   // right arrow key
-  if (keycode === 39) {
-    camera.translateX(-0.05);
+  if (keycode === 39 || keycode === 68) {
+    camera.translateX(0.08);
   }
   // left arrow key
-  else if (keycode === 37) {
-    camera.translateX(0.05);
+  else if (keycode === 37 || keycode === 65) {
+    camera.translateX(-0.08);
   }
   // up arrow key
-  else if (keycode === 38) {
-    camera.translateY(-0.05);
+  else if (keycode === 38 || keycode === 87) {
+    camera.translateZ(-0.08);
   }
   // down arrow key
-  else if (keycode === 40) {
-    camera.translateY(0.05);
+  else if (keycode === 40 || keycode === 83) {
+    camera.translateZ(0.08);
   }
 }
 
