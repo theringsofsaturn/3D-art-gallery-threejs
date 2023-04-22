@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import { PointerLockControls } from 'three-stdlib';
+// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const scene = new THREE.Scene(); // create a new scene
 
@@ -20,7 +21,14 @@ renderer.setClearColor(0xffffff, 1); //background color
 document.body.appendChild(renderer.domElement); // add renderer to html
 
 // Orbit controls allow the camera to orbit around a target.
-const controls = new OrbitControls(camera, renderer.domElement);
+// const controls = new OrbitControls(camera, renderer.domElement);
+
+const controls = new PointerLockControls(camera, document.body);
+
+// Click the canvas to lock the pointer
+document.addEventListener('click', () => {
+  controls.lock();
+});
 
 // Ambient light is a soft light that lights up all the objects in the scene equally
 const ambientLight = new THREE.AmbientLight(0xffffff, 1.0); // color, intensity, distance, decay
@@ -156,19 +164,19 @@ function onKeyDown(event) {
 
   // right arrow key
   if (keycode === 39 || keycode === 68) {
-    camera.translateX(0.08);
+    controls.moveRight(0.08);
   }
   // left arrow key
   else if (keycode === 37 || keycode === 65) {
-    camera.translateX(-0.08);
+    controls.moveRight(-0.08);
   }
   // up arrow key
   else if (keycode === 38 || keycode === 87) {
-    camera.translateZ(-0.08);
+    controls.moveForward(0.08);
   }
   // down arrow key
   else if (keycode === 40 || keycode === 83) {
-    camera.translateZ(0.08);
+    controls.moveForward(-0.08);
   }
 }
 
@@ -176,7 +184,7 @@ let render = function () {
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
 
-  controls.update();
+  // controls.update();
 
   renderer.render(scene, camera); //renders the scene
 
