@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import { PointerLockControls } from 'three-stdlib';
-// import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 const scene = new THREE.Scene(); // create a new scene
 
@@ -19,16 +18,6 @@ const renderer = new THREE.WebGLRenderer({ antialias: false }); // antialias mea
 renderer.setSize(window.innerWidth, window.innerHeight); // set size of renderer
 renderer.setClearColor(0xffffff, 1); //background color
 document.body.appendChild(renderer.domElement); // add renderer to html
-
-// Orbit controls allow the camera to orbit around a target.
-// const controls = new OrbitControls(camera, renderer.domElement);
-
-const controls = new PointerLockControls(camera, document.body);
-
-// Click the canvas to lock the pointer
-document.addEventListener('click', () => {
-  controls.lock();
-});
 
 // Ambient light is a soft light that lights up all the objects in the scene equally
 const ambientLight = new THREE.AmbientLight(0xffffff, 1.0); // color, intensity, distance, decay
@@ -109,7 +98,7 @@ const rightWall = new THREE.Mesh( // Mesh class that has geometry and material i
 rightWall.position.x = 20;
 rightWall.rotation.y = Math.PI / 2; // this is 90 degrees
 
-wallGroup.add(frontWall, leftWall, rightWall);
+wallGroup.add(frontWall, leftWall, rightWall); // add the walls to the group
 
 // Loop through each wall and create the bounding box
 for (let i = 0; i < wallGroup.children.length; i++) {
@@ -118,7 +107,7 @@ for (let i = 0; i < wallGroup.children.length; i++) {
 }
 
 // Create the ceiling
-const ceilingGeometry = new THREE.PlaneGeometry(50, 50); // BoxGeometry is the shape the object
+const ceilingGeometry = new THREE.PlaneGeometry(50, 50);
 const ceilingMaterial = new THREE.MeshLambertMaterial({
   // Lambert material is for non-shiny surfaces
   color: 'blue',
@@ -158,7 +147,36 @@ const painting2 = createPainting(
 );
 scene.add(painting1, painting2);
 
-// function when a key is pressed, execute this function
+// Controls
+const controls = new PointerLockControls(camera, document.body);
+
+// Lock the pointer (controls are activated) and hide the menu when the experience starts
+function startExperience() {
+  // Lock the pointer
+  controls.lock();
+
+  // Hide the menu
+  hideMenu();
+}
+
+const playButton = document.getElementById('play_button');
+playButton.addEventListener('click', startExperience);
+
+// Hide the menu
+function hideMenu() {
+  const menu = document.getElementById('menu');
+  menu.style.display = 'none';
+}
+
+// Show the menu when the pointer is unlocked (controls are deactivated), to have the possibility to restart the experience again
+function showMenu() {
+  const menu = document.getElementById('menu');
+  menu.style.display = 'block';
+}
+
+controls.addEventListener('unlock', showMenu);
+
+// Add the movement (left/right/forward/backward) to the scene. Press the arrow keys or WASD to move
 function onKeyDown(event) {
   let keycode = event.which;
 
@@ -183,8 +201,6 @@ function onKeyDown(event) {
 let render = function () {
   cube.rotation.x += 0.01;
   cube.rotation.y += 0.01;
-
-  // controls.update();
 
   renderer.render(scene, camera); //renders the scene
 
