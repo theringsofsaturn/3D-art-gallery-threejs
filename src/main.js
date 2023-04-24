@@ -40,9 +40,9 @@ document.addEventListener('keydown', onKeyDown, false);
 // Texture of the floor
 const textureLoader = new THREE.TextureLoader();
 const floorTexture = textureLoader.load('img/Floor.jpg');
-floorTexture.wrapS = THREE.RepeatWrapping;
-floorTexture.wrapT = THREE.RepeatWrapping;
-floorTexture.repeat.set(20, 20);
+floorTexture.wrapS = THREE.RepeatWrapping; // wrapS is horizonatl direction
+floorTexture.wrapT = THREE.RepeatWrapping; // wrapT the vertical direction
+floorTexture.repeat.set(20, 20); // how many times to repeat the texture
 
 // let floorTexture = new THREE.TextureLoader().load('img/Floor.jpg');
 // textureLoader.load('img/Floor.jpg');cds
@@ -120,9 +120,9 @@ ceilingPlane.position.y = 12;
 scene.add(ceilingPlane);
 
 // Create a painting
-function createPainting(imageUrl, width, height, position) {
+function createPainting(imageURL, width, height, position) {
   const textureLoader = new THREE.TextureLoader();
-  const paintingTexture = textureLoader.load(imageUrl);
+  const paintingTexture = textureLoader.load(imageURL);
   const paintingMaterial = new THREE.MeshBasicMaterial({
     map: paintingTexture,
   });
@@ -139,12 +139,14 @@ const painting1 = createPainting(
   5,
   new THREE.Vector3(-10, 5, -19.99)
 );
+
 const painting2 = createPainting(
   '/artworks/1.jpg',
   10,
   5,
   new THREE.Vector3(10, 5, -19.99)
 );
+
 scene.add(painting1, painting2);
 
 // Controls
@@ -154,7 +156,6 @@ const controls = new PointerLockControls(camera, document.body);
 function startExperience() {
   // Lock the pointer
   controls.lock();
-
   // Hide the menu
   hideMenu();
 }
@@ -162,13 +163,13 @@ function startExperience() {
 const playButton = document.getElementById('play_button');
 playButton.addEventListener('click', startExperience);
 
-// Hide the menu
+// Hide menu
 function hideMenu() {
   const menu = document.getElementById('menu');
   menu.style.display = 'none';
 }
 
-// Show the menu when the pointer is unlocked (controls are deactivated), to have the possibility to restart the experience again
+// Show menu
 function showMenu() {
   const menu = document.getElementById('menu');
   menu.style.display = 'block';
