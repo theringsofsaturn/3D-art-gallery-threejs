@@ -1,3 +1,6 @@
+/* Add Animate.css to your project */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
 html,
 body {
   width: 100%;
@@ -8,11 +11,13 @@ body {
 }
 
 body {
-  margin: 0em; 
+  margin: 0em;
   padding: 0em;
-  overflow: hidden; /* Hide scrollbars */
+  overflow: hidden;
   font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
     'Lucida Grande', sans-serif;
+  background-color: #121212;
+  cursor: url('http://www.rw-designer.com/cursor-view/97756.png') 16 16, auto;
 }
 
 p,
@@ -22,19 +27,22 @@ canvas {
   vertical-align: top;
 }
 
-::-moz-selection { /* Code for Firefox */
+::-moz-selection {
+  /* Code for Firefox */
   background: #34495e;
   background-color: #34495e;
   color: #fff;
 }
 
-::selection { /* Code for Chrome, Safari and Opera */
+::selection {
+  /* Code for Chrome, Safari and Opera */
   background: #34495e;
   background-color: #34495e;
   color: #fff;
 }
 
-.hide { /* Hide elements */
+.hide {
+  /* Hide elements */
   display: none;
 }
 
@@ -51,10 +59,19 @@ canvas {
   text-align: center;
   font-size: 1.2em;
 
-  background-color: #fff;
+  background-color: transparent;
   opacity: 1;
 
-  background: #ffffff;
+  box-shadow: none;
+
+  animation: fadeIn 1s ease-in;
+}
+
+#menu #content_container {
+  background-color: #fff;
+  padding: 1em;
+  border-bottom-left-radius: 0.9em;
+  border-bottom-right-radius: 0.9em;
 
   -webkit-box-shadow: 0em 0.25em 0.75em rgba(124, 124, 124, 0.5);
   -moz-box-shadow: 0em 0.25em 0.75em rgba(124, 124, 124, 0.5);
@@ -62,24 +79,34 @@ canvas {
 }
 
 #menu #img_container {
+  position: relative;
   height: 14.5em;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden; 
-
-  border-top-left-radius: 0.9em; 
+  overflow: hidden;
+  border-top-left-radius: 0.9em;
   border-top-right-radius: 0.9em;
 }
 
 #menu #img_container img {
-  flex-shrink: 0; /* Prevent image from shrinking */
+  flex-shrink: 0;
   width: 105%;
 }
 
 #menu #content {
   padding: 0.5em;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSlideUp 3s ease-out forwards;
+}
+
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 #menu #content div {
@@ -89,29 +116,40 @@ canvas {
 #menu h1 {
   font-family: 'Oswald';
   letter-spacing: 0.25em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-#menu p {
-  font-family: 'Lato';
-  margin: 0em;
+#menu #content p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1em;
+  font-weight: 500;
+  line-height: 1.6em;
+  color: #333;
+  margin: 0.2em 0;
+}
+
+#menu #content p.instructions {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 0.75em;
 }
 
 #menu #play_button {
-  display: inline-block; 
+  display: inline-block;
+  background-color: #34495e;
+  color: #fff;
   border-radius: 0.9em;
-  border: solid #48484f 0.1em;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  padding-top: 0.12em;
-  padding-bottom: 0.12em;
-
+  padding: 0.5em 1.5em;
+  font-weight: 600;
+  margin-top: 1em;
   margin-bottom: 1.5em;
-  transition: all 0.4s; /* Transition effect when hovering */
+  transition: all 0.4s;
 }
 
 #menu #play_button:hover {
-  border: solid #2323be 0.1em;
-  color: #2323be;
+  background-color: #2323be;
+  color: #fff;
+  transform: scale(1.05);
   cursor: pointer;
   transition: all 0.4s;
 }
@@ -119,7 +157,7 @@ canvas {
 #menu #play_button p {
   font-family: 'Oswald';
   letter-spacing: 0.125em;
-  color: #48484f;
+  color: white;
   font-size: 1.3em;
   transition: all 0.4s;
 }
@@ -127,6 +165,7 @@ canvas {
 #menu #play_button:hover p {
   color: #2323be;
   transition: all 0.4s;
+  color: white;
 }
 
 #background_menu {
@@ -141,4 +180,60 @@ canvas {
 canvas {
   width: 100%;
   height: 100%;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+.title .stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px #2323be;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  animation: fadeIn 2s ease-in;
+}
+
+.title .main {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-shadow: 2px 2px 0px #2323be, 4px 4px 0px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 2s ease-in;
+}
+
+#starry_night_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://th.bing.com/th/id/R.cf8cb0d1a972300c5e60b3ebf20b5779?rik=QLOj5Ukvu%2brJNQ&pid=ImgRaw&r=0');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  animation: panBg 30s linear infinite;
+  background-attachment: fixed;
+}
+
+@keyframes panBg {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
 }
