@@ -169,10 +169,33 @@ backWall.position.z = 20;
 
 wallGroup.add(frontWall, backWall, leftWall, rightWall); // add the walls to the group
 
-// Loop through each wall and create the bounding box
+// Loop through each wall and create the bounding box for each wall
 for (let i = 0; i < wallGroup.children.length; i++) {
-  wallGroup.children[i].BBox = new THREE.Box3();
-  wallGroup.children[i].BBox.setFromObject(wallGroup.children[i]);
+  wallGroup.children[i].BoundingBox = new THREE.Box3();
+  wallGroup.children[i].BoundingBox.setFromObject(wallGroup.children[i]);
+}
+
+// check if the player intersects with the wall
+function checkCollision() {
+  const playerBoundingBox = new THREE.Box3(); // create a bounding box for the player
+  const cameraWorldPosition = new THREE.Vector3(); // create a vector to hold the camera position
+  camera.getWorldPosition(cameraWorldPosition); // get the camera position and store it in the vector. Note: The camera represents the player's position in our case.
+  playerBoundingBox.setFromCenterAndSize(
+    // setFromCenterAndSize is a method that takes the center and size of the box. We set the player's bounding box size and center it on the camera's world position.
+    cameraWorldPosition,
+    new THREE.Vector3(1, 1, 1)
+  );
+
+  // loop through each wall
+  for (let i = 0; i < wallGroup.children.length; i++) {
+    const wall = wallGroup.children[i]; // get the wall
+    if (playerBoundingBox.intersectsBox(wall.BoundingBox)) {
+      // check if the player's bounding box intersects with any of the wall bounding boxes
+      return true; // if it does, return true
+    }
+  }
+
+  return false; // if it doesn't, return false
 }
 
 // Create the ceiling
@@ -274,6 +297,8 @@ const clock = new THREE.Clock();
 
 function updateMovement(delta) {
   const moveSpeed = 5 * delta;
+  const previousPosition = camera.position.clone(); // clone the camera position before the movement
+
   if (keysPressed.ArrowRight || keysPressed.d) {
     controls.moveRight(moveSpeed);
   }
@@ -286,6 +311,10 @@ function updateMovement(delta) {
   if (keysPressed.ArrowDown || keysPressed.s) {
     controls.moveForward(-moveSpeed);
   }
+
+  // After the movement is applied, we check for collisions by calling the checkCollision function. If a collision is detected, we revert the camera's position to its previous position, effectively preventing the player from moving through wallsss
+  if (checkCollision()) {
+    camera.position.copy(previousPosition); // reset the camera position to the previous position. The `previousPosition` variable is a clone of the camera position before the movement
 }
 
 let render = function () {
