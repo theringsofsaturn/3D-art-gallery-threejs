@@ -1,5 +1,5 @@
-import * as THREE from 'three';
-import { PointerLockControls } from 'three-stdlib';
+import * as THREE from 'three'; // import the entire three.js library as `THREE`
+import { PointerLockControls } from 'three-stdlib'; // PointerLockControls is a class that we can use to control the camera with the mouse
 
 const scene = new THREE.Scene(); // create a new scene
 
@@ -21,25 +21,28 @@ document.body.appendChild(renderer.domElement); // add renderer to html
 
 // Create a painting
 function createPainting(imageURL, width, height, position) {
-  const textureLoader = new THREE.TextureLoader();
-  const paintingTexture = textureLoader.load(imageURL);
+  const textureLoader = new THREE.TextureLoader(); // we need a texture loader to load the image
+  const paintingTexture = textureLoader.load(imageURL); // method to load the image
   const paintingMaterial = new THREE.MeshBasicMaterial({
-    map: paintingTexture,
+    // MeshBasicMaterial is a material that doesn't react to light. It's used for things like UI elements, skyboxes, and other objects that don't need to be lit.
+    map: paintingTexture, // `map` is a property of the material which takes a texture and applies it to the surface of the geometry
   });
-  const paintingGeometry = new THREE.PlaneGeometry(width, height);
-  const painting = new THREE.Mesh(paintingGeometry, paintingMaterial);
-  painting.position.set(position.x, position.y, position.z);
-  return painting;
+  const paintingGeometry = new THREE.PlaneGeometry(width, height); // PlaneGeometry is a flat rectangle
+  const painting = new THREE.Mesh(paintingGeometry, paintingMaterial); // Mesh is an object that takes a geometry and a material and combines them to create the final rendered object
+  painting.position.set(position.x, position.y, position.z); // set the position of the painting
+  return painting; // this function returns the paintings
 }
 
-// Create paintings and add them to the scene
+// Create paintings and add them to the scene using the createPainting functions
+// Paonting on the front wall at the left
 const painting1 = createPainting(
-  '/artworks/0.jpg',
-  10,
-  5,
-  new THREE.Vector3(-10, 5, -19.99)
+  '/artworks/0.jpg', // the image url or path
+  10, // width
+  5, // height
+  new THREE.Vector3(-10, 5, -19.99) // position in x, y, z coordinates
 );
 
+// Painting on the front wall at the right
 const painting2 = createPainting(
   '/artworks/1.jpg',
   10,
@@ -54,7 +57,7 @@ const painting3 = createPainting(
   5,
   new THREE.Vector3(-19.99, 5, -10)
 );
-painting3.rotation.y = Math.PI / 2;
+painting3.rotation.y = Math.PI / 2; // 90 degrees. If we don't rotate this, it will show up in the front of us instead of lying on the left wall
 
 // Painting on the right wall
 const painting4 = createPainting(
@@ -63,9 +66,9 @@ const painting4 = createPainting(
   5,
   new THREE.Vector3(19.99, 5, -10)
 );
-painting4.rotation.y = -Math.PI / 2;
+painting4.rotation.y = -Math.PI / 2; // -90 degrees. The same as above but for the right wall
 
-scene.add(painting1, painting2, painting3, painting4);
+scene.add(painting1, painting2, painting3, painting4); // add the paintings to the scene
 
 // We can use a combination of ambient light and spotlights to create a more natural and immersive lighting environment.
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
@@ -75,44 +78,47 @@ scene.add(ambientLight);
 function createSpotlight(x, y, z, intensity, targetPosition) {
   const spotlight = new THREE.SpotLight(0xffffff, intensity);
   spotlight.position.set(x, y, z);
-  spotlight.target.position.copy(targetPosition);
+  spotlight.target.position.copy(targetPosition); // copy the target position because we want the spotlight to point to the painting
   spotlight.castShadow = true;
-  spotlight.angle = Math.PI / 6; // 30 degrees
-  spotlight.penumbra = 0.9;
-  spotlight.decay = 2;
-  spotlight.distance = 40;
-  spotlight.shadow.mapSize.width = 1024;
+  spotlight.angle = Math.PI / 6; // 30 degrees because the angle is in radians and math.pi is 180 degrees
+  spotlight.penumbra = 0.9; // the penumbra is the soft edge of the spotlight
+  spotlight.decay = 2; // the decay is how strong the light is. The higher the number, the stronger the light
+  spotlight.distance = 40; // the distance of the light is 40 units away
+  spotlight.shadow.mapSize.width = 1024; // the shadow map size is the resolution of the shadow. The higher the number, the higher the resolution
   spotlight.shadow.mapSize.height = 1024;
-  return spotlight;
+  return spotlight; // this function returns the spotlight
 }
 
 // Add spotlights to the scene
+// The spotlight target is the painting position
 const spotlight1 = createSpotlight(-15, 20, -10, 1.5, painting1.position);
 const spotlight2 = createSpotlight(15, 20, -10, 1.5, painting2.position);
 const spotlight3 = createSpotlight(-35, 20, -10, 1.5, painting3.position);
 const spotlight4 = createSpotlight(35, 20, -10, 1.5, painting4.position);
 
-// Add new spotlights to the scene
-scene.add(spotlight3, spotlight4);
-scene.add(spotlight3.target);
-scene.add(spotlight4.target);
-
-scene.add(spotlight1, spotlight2);
-scene.add(spotlight1.target);
-scene.add(spotlight2.target);
+// add the spotlights to the scene
+scene.add(spotlight1, spotlight2, spotlight3, spotlight4);
+scene.add(
+  // add the spotlight target to the scene
+  spotlight1.target,
+  spotlight2.target,
+  spotlight3.target,
+  spotlight4.target
+);
 
 // Texture of the floor
-const textureLoader = new THREE.TextureLoader();
-const floorTexture = textureLoader.load('img/floor.png');
+const textureLoader = new THREE.TextureLoader(); // create a texture loader
+const floorTexture = textureLoader.load('img/floor.png'); // load the image/texture
 floorTexture.wrapS = THREE.RepeatWrapping; // wrapS is horizonatl direction
 floorTexture.wrapT = THREE.RepeatWrapping; // wrapT the vertical direction
 floorTexture.repeat.set(20, 20); // how many times to repeat the texture
 
 // Create the floor plane.
-const planeGeometry = new THREE.PlaneGeometry(45, 45); // BoxGeometry is the shape of the object
+const planeGeometry = new THREE.PlaneGeometry(45, 45);
 const planeMaterial = new THREE.MeshPhongMaterial({
-  map: floorTexture, // the texture
-  side: THREE.DoubleSide,
+  // MeshPhongMaterial is a material that uses a reflection model to simulate shiny surfaces. It's used for things like metal, plastic, and other shiny surfaces. It is more computationally expensive than MeshBasicMaterial, MeshLambertMaterial, and MeshNormalMaterial, so use it sparingly, so use it only when neccessary for performance reasons
+  map: floorTexture, // the texture we loaded above
+  side: THREE.DoubleSide, // render both sides of the faces
 });
 
 const floorPlane = new THREE.Mesh(planeGeometry, planeMaterial); // create the floor with geometry and material
@@ -130,9 +136,9 @@ scene.add(wallGroup); // add the group to the scene, then any child added to the
 const wallTexture = textureLoader.load('img/white-texture.jpg');
 wallTexture.wrapS = THREE.RepeatWrapping;
 wallTexture.wrapT = THREE.RepeatWrapping;
-wallTexture.repeat.set(1, 1);
+wallTexture.repeat.set(1, 1); // `repeat` property of a texture is a Vector2 that defines how many times the texture should be repeated in the x and y directions. sets the texture to be repeated once in both the x and y directions. This means that the texture will not be repeated and will only be displayed once on the material
 
-const wallMaterial = new THREE.MeshLambertMaterial({ map: wallTexture });
+const wallMaterial = new THREE.MeshLambertMaterial({ map: wallTexture }); //
 
 // Front Wall
 const frontWall = new THREE.Mesh( // Mesh class that has geometry and material inside
@@ -145,7 +151,7 @@ frontWall.position.z = -20; // push the wall forward in the Z axis
 // Left Wall
 const leftWall = new THREE.Mesh( // Mesh class that has geometry and material inside
   new THREE.BoxGeometry(80, 20, 0.001), // geometry
-  new THREE.MeshLambertMaterial({ map: wallTexture })
+  new THREE.MeshLambertMaterial({ map: wallTexture }) // MeshLambertMaterial is useful for simulating non-shiny objects such as wood or stone which are still affected by lighting but aren't shiny
 );
 
 leftWall.rotation.y = Math.PI / 2; // this is 90 degrees
@@ -202,23 +208,23 @@ function checkCollision() {
 const ceilingTexture = textureLoader.load('img/white-texture.jpg');
 const ceilingGeometry = new THREE.PlaneGeometry(45, 40);
 const ceilingMaterial = new THREE.MeshLambertMaterial({ map: ceilingTexture });
-const ceilingPlane = new THREE.Mesh(ceilingGeometry, ceilingMaterial); // create ceiling with geometry and material
+const ceilingPlane = new THREE.Mesh(ceilingGeometry, ceilingMaterial);
 
-ceilingPlane.rotation.x = Math.PI / 2; // this is 90 degrees
+ceilingPlane.rotation.x = Math.PI / 2; // 90 degrees
 ceilingPlane.position.y = 10;
 
 scene.add(ceilingPlane);
 
 // Optimize the lights and shadows
-renderer.shadowMap.enabled = true;
-renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.shadowMap.enabled = true; // enable shadows
+renderer.shadowMap.type = THREE.PCFSoftShadowMap; // `renderer.shadowMap.type` is a property that defines the type of shadow map used by the renderer. THREE.PCFSoftShadowMap is one of the available shadow map types and stands for Percentage-Closer Filtering Soft Shadow Map. This type of shadow map uses an algorithm to smooth the edges of shadows and make them appear softer
 
 // Enable shadows on objects
-floorPlane.receiveShadow = true;
+floorPlane.receiveShadow = true; // receive shadows
 ceilingPlane.receiveShadow = true;
 frontWall.castShadow = true;
 frontWall.receiveShadow = true;
-leftWall.castShadow = true;
+leftWall.castShadow = true; // cast shadows
 leftWall.receiveShadow = true;
 rightWall.castShadow = true;
 rightWall.receiveShadow = true;
@@ -230,7 +236,7 @@ painting2.castShadow = true;
 painting2.receiveShadow = true;
 
 // Controls
-const controls = new PointerLockControls(camera, document.body);
+const controls = new PointerLockControls(camera, document.body); // constrols to control the camera with the mouse
 
 // Lock the pointer (controls are activated) and hide the menu when the experience starts
 function startExperience() {
@@ -242,8 +248,8 @@ function startExperience() {
   hideMenu();
 }
 
-const playButton = document.getElementById('play_button');
-playButton.addEventListener('click', startExperience);
+const playButton = document.getElementById('play_button'); // get the play button from the html
+playButton.addEventListener('click', startExperience); // add the event listener `click` to the play button
 
 // Hide menu
 function hideMenu() {
@@ -259,6 +265,7 @@ function showMenu() {
 
 controls.addEventListener('unlock', showMenu);
 
+// object to hold the keys pressed
 const keysPressed = {
   ArrowUp: false,
   ArrowDown: false,
@@ -272,10 +279,11 @@ const keysPressed = {
 
 // Event Listener for when we press the keys
 document.addEventListener(
-  'keydown',
+  'keydown', // `keydown` is an event that fires when a key is pressed
   (event) => {
     if (event.key in keysPressed) {
-      keysPressed[event.key] = true;
+      // check if the key pressed is in the keysPressed object
+      keysPressed[event.key] = true; // if it is, set the value to true
     }
   },
   false
@@ -283,20 +291,21 @@ document.addEventListener(
 
 // Event Listener for when we release the keys
 document.addEventListener(
-  'keyup',
+  'keyup', // `keyup` is an event that fires when a key is released
   (event) => {
     if (event.key in keysPressed) {
-      keysPressed[event.key] = false;
+      // check if the key released is in the keysPressed object
+      keysPressed[event.key] = false; // if it is, set the value to false
     }
   },
   false
 );
 
 // Add the movement (left/right/forward/backward) to the scene. Press the arrow keys or WASD to move
-const clock = new THREE.Clock();
+const clock = new THREE.Clock(); // create a clock to keep track of the time between frames
 
 function updateMovement(delta) {
-  const moveSpeed = 5 * delta;
+  const moveSpeed = 5 * delta; // moveSpeed is the distance the camera will move in one second. We multiply by delta to make the movement framerate independent. This means that the movement will be the same regardless of the framerate. This is important because if the framerate is low, the movement will be slow and if the framerate is high, the movement will be fast. This is not what we want. We want the movement to be the same regardless of the framerate.
   const previousPosition = camera.position.clone(); // clone the camera position before the movement
 
   if (keysPressed.ArrowRight || keysPressed.d) {
@@ -312,17 +321,18 @@ function updateMovement(delta) {
     controls.moveForward(-moveSpeed);
   }
 
-  // After the movement is applied, we check for collisions by calling the checkCollision function. If a collision is detected, we revert the camera's position to its previous position, effectively preventing the player from moving through wallsss
+  // After the movement is applied, we check for collisions by calling the checkCollision function. If a collision is detected, we revert the camera's position to its previous position, effectively preventing the player from moving through walls.
   if (checkCollision()) {
     camera.position.copy(previousPosition); // reset the camera position to the previous position. The `previousPosition` variable is a clone of the camera position before the movement.
   }
 }
 
+// Used to render the scene
 let render = function () {
-  const delta = clock.getDelta();
-  updateMovement(delta);
-  renderer.render(scene, camera);
-  requestAnimationFrame(render);
+  const delta = clock.getDelta(); // get the time between frames
+  updateMovement(delta); // update the movement with the time between frames
+  renderer.render(scene, camera); // render the scene
+  requestAnimationFrame(render); // requestAnimationFrame is a method that calls the render function before the next repaint. This is used to render the scene at 60 frames per second and is more efficient than using setInterval because it only renders when the browser is ready to repaint.
 };
 
 render();
