@@ -5,13 +5,13 @@ const scene = new THREE.Scene(); // create a new scene
 
 // Create a camera, which defines where we're looking at.
 const camera = new THREE.PerspectiveCamera(
-  75, // Field of view
+  60, // Field of view
   window.innerWidth / window.innerHeight, // aspect ratio
   0.1, // near clipping plane
   1000 // far clipping plane
 );
 scene.add(camera); // add the camera to the scene
-camera.position.z = 5; // move camera back 5 units
+camera.position.set(0, 3, 0);
 
 // Create a render and set the size and background color
 const renderer = new THREE.WebGLRenderer({ antialias: false }); // antialias means smooth edges
@@ -59,7 +59,7 @@ const painting3 = createPainting(
 );
 painting3.rotation.y = Math.PI / 2; // 90 degrees. If we don't rotate this, it will show up in the front of us instead of lying on the left wall
 
-// Painting on the right wall
+// Painting on the right wall (near the front wall)
 const painting4 = createPainting(
   '/artworks/5.jpg',
   10,
@@ -68,7 +68,52 @@ const painting4 = createPainting(
 );
 painting4.rotation.y = -Math.PI / 2; // -90 degrees. The same as above but for the right wall
 
-scene.add(painting1, painting2, painting3, painting4); // add the paintings to the scene
+// Painting on the left wall (near the back wall)
+const painting5 = createPainting(
+  '/artworks/8.jpg',
+  10,
+  5,
+  new THREE.Vector3(-19.5, 5, 10)
+);
+painting5.rotation.y = Math.PI / 2;
+
+// Painting on the right wall (near the back wall)
+const painting6 = createPainting(
+  '/artworks/9.jpg',
+  10,
+  5,
+  new THREE.Vector3(19.5, 5, 10)
+);
+painting6.rotation.y = -Math.PI / 2;
+
+// Painting on the back wall at the left
+const painting7 = createPainting(
+  '/artworks/6.jpg',
+  10,
+  5,
+  new THREE.Vector3(-10, 5, 19.5)
+);
+painting7.rotation.y = Math.PI; // 180 degrees.
+
+// Painting on the back wall at the right
+const painting8 = createPainting(
+  '/artworks/7.jpg',
+  10,
+  5,
+  new THREE.Vector3(10, 5, 19.5)
+);
+painting8.rotation.y = Math.PI;
+
+scene.add(
+  painting1,
+  painting2,
+  painting3,
+  painting4,
+  painting5,
+  painting6,
+  painting7,
+  painting8
+); // add the paintings to the scene
 
 // We can use a combination of ambient light and spotlights to create a more natural and immersive lighting environment.
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
@@ -82,7 +127,7 @@ function createSpotlight(x, y, z, intensity, targetPosition) {
   spotlight.castShadow = true;
   spotlight.angle = Math.PI / 6; // 30 degrees because the angle is in radians and math.pi is 180 degrees
   spotlight.penumbra = 0.9; // the penumbra is the soft edge of the spotlight
-  spotlight.decay = 2; // the decay is how strong the light is. The higher the number, the stronger the light
+  spotlight.decay = 1.5; //  determines how the light attenuates with distance. The higher the value of decay, the faster the light intensity diminishes with distance
   spotlight.distance = 40; // the distance of the light is 40 units away
   spotlight.shadow.mapSize.width = 1024; // the shadow map size is the resolution of the shadow. The higher the number, the higher the resolution
   spotlight.shadow.mapSize.height = 1024;
@@ -91,19 +136,36 @@ function createSpotlight(x, y, z, intensity, targetPosition) {
 
 // Add spotlights to the scene
 // The spotlight target is the painting position
-const spotlight1 = createSpotlight(-15, 20, -10, 1.5, painting1.position);
-const spotlight2 = createSpotlight(15, 20, -10, 1.5, painting2.position);
-const spotlight3 = createSpotlight(-35, 20, -10, 1.5, painting3.position);
-const spotlight4 = createSpotlight(35, 20, -10, 1.5, painting4.position);
+const spotlight1 = createSpotlight(-15, 20, -10, 3, painting1.position);
+const spotlight2 = createSpotlight(15, 20, -10, 3, painting2.position);
+const spotlight3 = createSpotlight(-15, 20, -10, 3, painting3.position);
+const spotlight4 = createSpotlight(15, 20, -10, 3, painting4.position);
+const spotlight5 = createSpotlight(-15, 20, 10, 3, painting5.position);
+const spotlight6 = createSpotlight(15, 20, 10, 3, painting6.position);
+const spotlight7 = createSpotlight(-15, 20, 10, 3, painting7.position);
+const spotlight8 = createSpotlight(15, 20, 10, 3, painting8.position);
 
 // add the spotlights to the scene
-scene.add(spotlight1, spotlight2, spotlight3, spotlight4);
+scene.add(
+  spotlight1,
+  spotlight2,
+  spotlight3,
+  spotlight4,
+  spotlight5,
+  spotlight6,
+  spotlight7,
+  spotlight8
+);
 scene.add(
   // add the spotlight target to the scene
   spotlight1.target,
   spotlight2.target,
   spotlight3.target,
-  spotlight4.target
+  spotlight4.target,
+  spotlight5.target,
+  spotlight6.target,
+  spotlight7.target,
+  spotlight8.target
 );
 
 // Texture of the floor
