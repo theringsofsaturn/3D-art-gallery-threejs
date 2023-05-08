@@ -11,7 +11,7 @@ const camera = new THREE.PerspectiveCamera(
   1000 // far clipping plane
 );
 scene.add(camera); // add the camera to the scene
-camera.position.set(0, 3, 0);
+camera.position.set(0, 4, 0);
 
 // Create a render and set the size and background color
 const renderer = new THREE.WebGLRenderer({ antialias: false }); // antialias means smooth edges
@@ -126,7 +126,7 @@ function createSpotlight(x, y, z, intensity, targetPosition) {
   spotlight.target.position.copy(targetPosition); // copy the target position because we want the spotlight to point to the painting
   spotlight.castShadow = true;
   spotlight.angle = Math.PI / 6; // 30 degrees because the angle is in radians and math.pi is 180 degrees
-  spotlight.penumbra = 0.9; // the penumbra is the soft edge of the spotlight
+  spotlight.penumbra = 1; // the penumbra is the soft edge of the spotlight
   spotlight.decay = 1.5; //  determines how the light attenuates with distance. The higher the value of decay, the faster the light intensity diminishes with distance
   spotlight.distance = 40; // the distance of the light is 40 units away
   spotlight.shadow.mapSize.width = 1024; // the shadow map size is the resolution of the shadow. The higher the number, the higher the resolution
@@ -138,10 +138,10 @@ function createSpotlight(x, y, z, intensity, targetPosition) {
 // The spotlight target is the painting position
 const spotlight1 = createSpotlight(-15, 20, -10, 3, painting1.position);
 const spotlight2 = createSpotlight(15, 20, -10, 3, painting2.position);
-const spotlight3 = createSpotlight(-15, 20, -10, 3, painting3.position);
-const spotlight4 = createSpotlight(15, 20, -10, 3, painting4.position);
-const spotlight5 = createSpotlight(-15, 20, 10, 3, painting5.position);
-const spotlight6 = createSpotlight(15, 20, 10, 3, painting6.position);
+const spotlight3 = createSpotlight(-15, 20, -14, 3, painting3.position);
+const spotlight4 = createSpotlight(15, 20, -14, 3, painting4.position);
+const spotlight5 = createSpotlight(-15, 20, 14, 3, painting5.position);
+const spotlight6 = createSpotlight(15, 20, 14, 3, painting6.position);
 const spotlight7 = createSpotlight(-15, 20, 10, 3, painting7.position);
 const spotlight8 = createSpotlight(15, 20, 10, 3, painting8.position);
 
@@ -389,10 +389,129 @@ function updateMovement(delta) {
   }
 }
 
+painting1.userData = {
+  type: 'painting',
+  info: {
+    title: 'Painting 1',
+    artist: 'Artist 1',
+    year: 'Year 1',
+  },
+};
+
+painting2.userData = {
+  type: 'painting',
+  info: {
+    title: 'Painting 2',
+    artist: 'Artist 2',
+    year: 'Year 2',
+  },
+};
+
+painting3.userData = {
+  type: 'painting',
+  info: {
+    title: 'Painting 3',
+    artist: 'Artist 3',
+    year: 'Year 3',
+  },
+};
+
+painting4.userData = {
+  type: 'painting',
+  info: {
+    title: 'Painting 4',
+    artist: 'Artist 4',
+    year: 'Year 4',
+  },
+};
+
+painting5.userData = {
+  type: 'painting',
+  info: {
+    title: 'Painting 5',
+    artist: 'Artist 5',
+    year: 'Year 5',
+  },
+};
+
+painting6.userData = {
+  type: 'painting',
+  info: {
+    title: 'Painting 6',
+    artist: 'Artist 6',
+    year: 'Year 6',
+  },
+};
+
+painting7.userData = {
+  type: 'painting',
+  info: {
+    title: 'Painting 7',
+    artist: 'Artist 7',
+    year: 'Year 7',
+  },
+};
+
+painting8.userData = {
+  type: 'painting',
+  info: {
+    title: 'Painting 8',
+    artist: 'Artist 8',
+    year: 'Year 8',
+  },
+};
+
+function displayPaintingInfo(info) {
+  const infoElement = document.getElementById('painting-info');
+  infoElement.innerHTML = `
+    <h3>${info.title}</h3>
+    <p>Artist: ${info.artist}</p>
+    <p>Year: ${info.year}</p>
+  `;
+  infoElement.style.display = 'block';
+}
+
+function hidePaintingInfo() {
+  const infoElement = document.getElementById('painting-info');
+  infoElement.style.display = 'none';
+}
+
 // Used to render the scene
 let render = function () {
   const delta = clock.getDelta(); // get the time between frames
   updateMovement(delta); // update the movement with the time between frames
+
+  // Check the distance between the camera and the paintings
+  const distanceThreshold = 8; // Set the distance threshold for displaying the painting information
+  const distanceToPainting1 = camera.position.distanceTo(painting1.position);
+  const distanceToPainting2 = camera.position.distanceTo(painting2.position);
+  const distanceToPainting3 = camera.position.distanceTo(painting3.position);
+  const distanceToPainting4 = camera.position.distanceTo(painting4.position);
+  const distanceToPainting5 = camera.position.distanceTo(painting5.position);
+  const distanceToPainting6 = camera.position.distanceTo(painting6.position);
+  const distanceToPainting7 = camera.position.distanceTo(painting7.position);
+  const distanceToPainting8 = camera.position.distanceTo(painting8.position);
+
+  if (distanceToPainting1 < distanceThreshold) {
+    displayPaintingInfo(painting1.userData.info);
+  } else if (distanceToPainting2 < distanceThreshold) {
+    displayPaintingInfo(painting2.userData.info);
+  } else if (distanceToPainting3 < distanceThreshold) {
+    displayPaintingInfo(painting3.userData.info);
+  } else if (distanceToPainting4 < distanceThreshold) {
+    displayPaintingInfo(painting4.userData.info);
+  } else if (distanceToPainting5 < distanceThreshold) {
+    displayPaintingInfo(painting5.userData.info);
+  } else if (distanceToPainting6 < distanceThreshold) {
+    displayPaintingInfo(painting6.userData.info);
+  } else if (distanceToPainting7 < distanceThreshold) {
+    displayPaintingInfo(painting7.userData.info);
+  } else if (distanceToPainting8 < distanceThreshold) {
+    displayPaintingInfo(painting8.userData.info);
+  } else {
+    hidePaintingInfo();
+  }
+
   renderer.render(scene, camera); // render the scene
   requestAnimationFrame(render); // requestAnimationFrame is a method that calls the render function before the next repaint. This is used to render the scene at 60 frames per second and is more efficient than using setInterval because it only renders when the browser is ready to repaint.
 };
