@@ -1,0 +1,98 @@
+export const paintingData = [
+  {
+    imgSrc: 'artworks/1.jpg',
+    width: 3,
+    height: 2,
+    position: { x: -5, y: 2, z: -19.5 },
+    rotationY: 0,
+    info: {
+      title: 'Painting 1',
+      artist: 'Artist 1',
+      year: 'Year 1',
+    },
+  },
+  {
+    imgSrc: 'artworks/2.jpg',
+    width: 3,
+    height: 2,
+    position: { x: 5, y: 2, z: -19.5 },
+    rotationY: 0,
+    info: {
+      title: 'Painting 2',
+      artist: 'Artist 2',
+      year: 'Year 2',
+    },
+  },
+  {
+    imgSrc: 'artworks/3.jpg',
+    width: 3,
+    height: 2,
+    position: { x: 15, y: 2, z: -19.5 },
+    rotationY: 0,
+    info: {
+      title: 'Painting 3',
+      artist: 'Artist 3',
+      year: 'Year 3',
+    },
+  },
+  {
+    imgSrc: 'artworks/4.jpg',
+    width: 3,
+    height: 2,
+    position: { x: -15, y: 2, z: -19.5 },
+    rotationY: 0,
+    info: {
+      title: 'Painting 4',
+      artist: 'Artist 4',
+      year: 'Year 4',
+    },
+  },
+  {
+    imgSrc: 'artworks/5.jpg',
+    width: 3,
+    height: 2,
+    position: { x: -25, y: 2, z: -19.5 },
+    rotationY: 0,
+    info: {
+      title: 'Painting 5',
+      artist: 'Artist 5',
+      year: 'Year 5',
+    },
+  },
+  {
+    imgSrc: 'artworks/6.jpg',
+    width: 3,
+    height: 2,
+    position: { x: 25, y: 2, z: -19.5 },
+    rotationY: 0,
+    info: {
+      title: 'Painting 6',
+      artist: 'Artist 6',
+      year: 'Year 6',
+    },
+  },
+  {
+    imgSrc: 'artworks/7.jpg',
+    width: 3,
+    height: 2,
+    position: { x: 35, y: 2, z: -19.5 },
+    rotationY: 0,
+    info: {
+      title: 'Painting 7',
+      artist: 'Artist 7',
+      year: 'Year 7',
+    },
+  },
+  {
+    imgSrc: 'artworks/8.jpg',
+    width: 3,
+    height: 2,
+    position: { x: -35, y: 2, z: -19.5 },
+    rotationY: 0,
+    info: {
+      title: 'Painting 8',
+      artist: 'Artist 8',
+      year: 'Year 8',
+    },
+  },
+];
