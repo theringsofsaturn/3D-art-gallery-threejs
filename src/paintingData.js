@@ -9,6 +9,7 @@ export const paintingData = [
     info: {
       title: `Painting ${i + 1}`,
       artist: `Artist ${i + 1}`,
+      description: `Description ${i + 1}`,
       year: `Year ${i + 1}`,
     },
   })),

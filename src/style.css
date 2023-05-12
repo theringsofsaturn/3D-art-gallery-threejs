@@ -240,20 +240,34 @@ canvas {
 
 #painting-info {
   position: fixed;
-  bottom: 20px;
+  top: 20px;
   left: 20px;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px;
-  border-radius: 5px;
-  font-family: Arial, sans-serif;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  width: 300px;
+  height: 150px;
   z-index: 1;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+#painting-info.show {
+  transform: translateY(0);
+  opacity: 1;
 }
 
 #painting-info h3 {
   margin: 0 0 10px 0;
-  font-size: 1.2em;
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 #painting-info p {
   margin: 0;
+  font-size: 1.2em;
 }
