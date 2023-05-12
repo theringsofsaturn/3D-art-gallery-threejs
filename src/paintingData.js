@@ -7,9 +7,11 @@ export const paintingData = [
     position: { x: -15 + 10 * i, y: 2, z: -19.5 },
     rotationY: 0,
     info: {
-      title: `Painting ${i + 1}`,
-      artist: `Artist ${i + 1}`,
-      description: `Description ${i + 1}`,
+      title: `Van Gogh ${i + 1}`,
+      artist: 'Vincent van Gogh',
+      description: `This is one of the masterpieces by Vincent van Gogh, showcasing his unique style and emotional honesty. Artwork ${
+        i + 1
+      } perfectly encapsulates his love for the beauty of everyday life.`,
       year: `Year ${i + 1}`,
     },
   })),
@@ -21,8 +23,11 @@ export const paintingData = [
     position: { x: -15 + 10 * i, y: 2, z: 19.5 },
     rotationY: Math.PI,
     info: {
-      title: `Painting ${i + 5}`,
-      artist: `Artist ${i + 5}`,
+      title: `Van Gogh ${i + 5}`,
+      artist: 'Vincent van Gogh',
+      description: `Artwork ${
+        i + 5
+      } by Vincent van Gogh is an exceptional piece showcasing his remarkable ability to capture emotion and atmosphere.`,
       year: `Year ${i + 5}`,
     },
   })),
@@ -34,8 +39,11 @@ export const paintingData = [
     position: { x: -19.5, y: 2, z: -15 + 10 * i },
     rotationY: Math.PI / 2,
     info: {
-      title: `Painting ${i + 9}`,
-      artist: `Artist ${i + 9}`,
+      title: `Van Gogh ${i + 9}`,
+      artist: 'Vincent van Gogh',
+      description: `With its striking use of color and brushwork, Artwork ${
+        i + 9
+      } is a testament to Van Gogh's artistic genius.`,
       year: `Year ${i + 9}`,
     },
   })),
@@ -47,8 +55,11 @@ export const paintingData = [
     position: { x: 19.5, y: 2, z: -15 + 10 * i },
     rotationY: -Math.PI / 2,
     info: {
-      title: `Painting ${i + 13}`,
-      artist: `Artist ${i + 13}`,
+      title: `Van Gogh ${i + 13}`,
+      artist: 'Vincent van Gogh',
+      description: `Artwork ${
+        i + 13
+      } is a captivating piece by Vincent van Gogh, reflecting his distinctive style and deep passion for art.`,
       year: `Year ${i + 13}`,
     },
   })),
