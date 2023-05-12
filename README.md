@@ -8,8 +8,8 @@ You need Node.js installed on your computer.
 And VSCode as an Editor.
 Download link:
 
-https://nodejs.org
-https://code.visualstudio.com/Download
+- https://nodejs.org
+- https://code.visualstudio.com/Download
 
 After cloning, or downloading the zip file, on GitHub (green button `<> Code`) open your terminal, and run:
 
