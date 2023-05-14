@@ -16,5 +16,5 @@ export const startExperience = (controls) => {
 
 export const setupPlayButton = (controls) => {
   const playButton = document.getElementById('play_button'); // Get the reference
-  playButton.addEventListener('click', () => startExperience(controls)); // Add the click event listener to the play button to start the experienc
+  playButton.addEventListener('click', () => startExperience(controls)); // Add the click event listener to the play button to start the experience
 };
