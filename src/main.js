@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { scene, setupScene, animate } from './scene.js';
+import { scene, setupScene } from './scene.js';
 import { createPaintings } from './paintings.js';
 import { createWalls } from './walls.js';
 import { setupLighting } from './lighting.js';
