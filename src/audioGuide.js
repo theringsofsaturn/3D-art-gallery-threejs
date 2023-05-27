@@ -9,7 +9,7 @@ export const setupAudio = (camera) => {
   sound = new THREE.Audio(listener);
 
   const audioLoader = new THREE.AudioLoader();
-  audioLoader.load('sounds/audioGuide.ogg', function (buffer) {
+  audioLoader.load('sounds/tiersen.mp3', function (buffer) {
     sound.setBuffer(buffer);
     sound.setLoop(true);
     sound.setVolume(0.5);
