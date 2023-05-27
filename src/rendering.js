@@ -1,4 +1,3 @@
-// rendering.js
 import * as THREE from 'three';
 import { displayPaintingInfo, hidePaintingInfo } from './paintingInfo.js';
 import { updateMovement } from './movement.js';
@@ -22,7 +21,7 @@ export const setupRendering = (
     const distanceThreshold = 8; // set a distance threshold (8 units)
 
     let paintingToShow;
-    paintings.forEach((painting) => { 
+    paintings.forEach((painting) => {
       // loop through all paintings
       const distanceToPainting = camera.position.distanceTo(painting.position); // get distance to painting
       if (distanceToPainting < distanceThreshold) {
