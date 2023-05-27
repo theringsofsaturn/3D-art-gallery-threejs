@@ -10,8 +10,11 @@ import { setupRendering } from './rendering.js';
 import { setupEventListeners } from './eventListeners.js';
 import { addObjectsToScene } from './sceneHelpers.js';
 import { setupPlayButton } from './menu.js';
+import { setupAudio } from './audioGuide.js';
 
 let { camera, controls, renderer } = setupScene();
+
+setupAudio(camera);
 
 const textureLoader = new THREE.TextureLoader();
 
