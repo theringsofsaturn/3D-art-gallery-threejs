@@ -14,7 +14,7 @@ import { setupAudio } from './audioGuide.js';
 
 let { camera, controls, renderer } = setupScene();
 
-setupAudio(camera);
+setupAudio(camera); 
 
 const textureLoader = new THREE.TextureLoader();
 
