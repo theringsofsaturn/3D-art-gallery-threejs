@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 
 let sound;
+let bufferLoaded = false; // flag to track if audio buffer is loaded
 
 // setup audio for the scene
 export const setupAudio = (camera) => {
@@ -15,12 +16,14 @@ export const setupAudio = (camera) => {
     sound.setBuffer(buffer); // set the audio source buffer
     sound.setLoop(true); // set the audio source to loop
     sound.setVolume(0.5); // set the audio source volume
+    bufferLoaded = true; // set bufferLoaded flag to true once the audio buffer is loaded
   });
 };
 
 // play audio
 export const startAudio = () => {
-  if (sound) {
+  if (sound && bufferLoaded) {
+    // check if the buffer is loaded before playing
     sound.play();
   }
 };
