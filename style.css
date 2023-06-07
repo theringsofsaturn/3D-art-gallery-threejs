@@ -1,0 +1,273 @@
+/* Add Animate.css to your project */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 12px;
+  color: #28282f;
+  margin: 0em;
+}
+
+body {
+  margin: 0em;
+  padding: 0em;
+  overflow: hidden;
+  font-family: 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial,
+    'Lucida Grande', sans-serif;
+  background-color: #121212;
+  cursor: url('http://www.rw-designer.com/cursor-view/97756.png') 16 16, auto;
+}
+
+p,
+img,
+div,
+canvas {
+  vertical-align: top;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  background: #34495e;
+  background-color: #34495e;
+  color: #fff;
+}
+
+::selection {
+  /* Code for Chrome, Safari and Opera */
+  background: #34495e;
+  background-color: #34495e;
+  color: #fff;
+}
+
+.hide {
+  /* Hide elements */
+  display: none;
+}
+
+#menu {
+  width: 48em;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border-radius: 0.9em;
+
+  text-align: center;
+  font-size: 1.2em;
+
+  background-color: transparent;
+  opacity: 1;
+
+  box-shadow: none;
+
+  animation: fadeIn 1s ease-in;
+}
+
+#menu #content_container {
+  background-color: #fff;
+  padding: 1em;
+  border-bottom-left-radius: 0.9em;
+  border-bottom-right-radius: 0.9em;
+
+  -webkit-box-shadow: 0em 0.25em 0.75em rgba(124, 124, 124, 0.5);
+  -moz-box-shadow: 0em 0.25em 0.75em rgba(124, 124, 124, 0.5);
+  box-shadow: 0em 0.25em 0.75em rgba(124, 124, 124, 0.5);
+}
+
+#menu #img_container {
+  position: relative;
+  height: 14.5em;
+  overflow: hidden;
+  border-top-left-radius: 0.9em;
+  border-top-right-radius: 0.9em;
+}
+
+#menu #img_container img {
+  flex-shrink: 0;
+  width: 105%;
+}
+
+#menu #content {
+  padding: 0.5em;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInSlideUp 3s ease-out forwards;
+}
+
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#menu #content div {
+  margin-bottom: 1em;
+}
+
+#menu h1 {
+  font-family: 'Oswald';
+  letter-spacing: 0.25em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+#menu #content p {
+  font-family: 'Lato', sans-serif;
+  font-size: 1.1em;
+  font-weight: 500;
+  line-height: 1.6em;
+  color: #333;
+  margin: 0.2em 0;
+}
+
+#menu #content p.instructions {
+  font-size: 1.3em;
+  font-weight: 600;
+  margin-bottom: 0.75em;
+}
+
+#menu #play_button {
+  display: inline-block;
+  background-color: #34495e;
+  color: #fff;
+  border-radius: 0.9em;
+  padding: 0.5em 1.5em;
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
+  transition: all 0.4s;
+}
+
+#menu #play_button:hover {
+  background-color: #2323be;
+  color: #fff;
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: all 0.4s;
+}
+
+#menu #play_button p {
+  font-family: 'Oswald';
+  letter-spacing: 0.125em;
+  color: white;
+  font-size: 1.3em;
+  transition: all 0.4s;
+}
+
+#menu #play_button:hover p {
+  color: #2323be;
+  transition: all 0.4s;
+  color: white;
+}
+
+#background_menu {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  background-color: #111;
+  opacity: 0.125;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1em;
+}
+
+.title .stroke {
+  color: transparent;
+  -webkit-text-stroke: 2px #2323be;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  animation: fadeIn 2s ease-in;
+}
+
+.title .main {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-shadow: 2px 2px 0px #2323be, 4px 4px 0px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 2s ease-in;
+}
+
+#starry_night_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('https://th.bing.com/th/id/R.cf8cb0d1a972300c5e60b3ebf20b5779?rik=QLOj5Ukvu%2brJNQ&pid=ImgRaw&r=0');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  animation: panBg 30s linear infinite;
+  background-attachment: fixed;
+}
+
+@keyframes panBg {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+#painting-info {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 10px;
+  font-family: 'Arial', sans-serif;
+  color: #fff;
+  width: 300px;
+  height: 150px;
+  z-index: 1;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(100px);
+  opacity: 0;
+}
+
+#painting-info.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+#painting-info h3 {
+  margin: 0 0 10px 0;
+  font-size: 2em;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#painting-info p {
+  margin: 0;
+  font-size: 1.2em;
+}
