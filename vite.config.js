@@ -1,4 +1,5 @@
-// vite.config.js
-export default {
-  base: '/3D-art-gallery/',
-};
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  base: '/3D-art-gallery',
+});
