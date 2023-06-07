@@ -1,0 +1,10 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# dotenv environment variable files
+.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
