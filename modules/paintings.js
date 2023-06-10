@@ -20,6 +20,7 @@ export function createPaintings(scene, textureLoader) {
     painting.userData = {
       type: 'painting', // add a type property to the userData object so we can check if the object is a painting or not
       info: data.info, // add the painting info to the userData object. `data` is the current painting object in the forEach loop. `info` is a property of the painting object that holds the painting info
+      url: data.info.link
     };
 
     painting.castShadow = true; // set the painting to cast a shadow
