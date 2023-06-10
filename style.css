@@ -42,33 +42,58 @@ canvas {
 }
 
 .hide {
-  /* Hide elements */
   display: none;
 }
 
 #menu {
-  width: 48em;
-
+  width: 40em;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-
-  border-radius: 0.9em;
-
   text-align: center;
   font-size: 1.2em;
-
-  background-color: transparent;
-  opacity: 1;
-
-  box-shadow: none;
-
-  animation: fadeIn 1s ease-in;
+  border-radius: 0.9em;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
 }
 
+#menu .title {
+  padding: 1em;
+  background-color: rgba(52, 58, 125, 0.8);
+  color: #f2c641;
+  border-radius: 0.9em;
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 0px #f2c641, 4px 4px 0px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 2s ease-in, shadow-pulse 2s infinite;
+}
+
+@keyframes shadow-pulse {
+  0% {
+    text-shadow: 2px 2px 0px #2323be, 4px 4px 0px rgba(0, 0, 0, 0.4);
+  }
+  100% {
+    text-shadow: 4px 4px 0px #2323be, 8px 8px 0px rgba(0, 0, 0, 0.4);
+  }
+}
+
+#menu .title:hover {
+  transform: rotateX(0deg); /* reset the transformation on hover */
+}
+
+.title-info {
+  background-color: rgba(35, 37, 88, 0.8);
+  color: #f2c641;
+  padding: 1em;
+  border-radius: 0.9em;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
 #menu #content_container {
-  background-color: #fff;
   padding: 1em;
   border-bottom-left-radius: 0.9em;
   border-bottom-right-radius: 0.9em;
@@ -91,13 +116,6 @@ canvas {
   width: 105%;
 }
 
-#menu #content {
-  padding: 0.5em;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInSlideUp 3s ease-out forwards;
-}
-
 @keyframes fadeInSlideUp {
   0% {
     opacity: 0;
@@ -109,72 +127,50 @@ canvas {
   }
 }
 
-#menu #content div {
-  margin-bottom: 1em;
+#menu {
+  width: 40em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-size: 1.2em;
+  border-radius: 0.9em;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
 }
 
-#menu h1 {
-  font-family: 'Oswald';
-  letter-spacing: 0.25em;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+#menu .title h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+
+#menu #content {
+  padding: 1em;
 }
 
 #menu #content p {
-  font-family: 'Lato', sans-serif;
   font-size: 1.1em;
-  font-weight: 500;
   line-height: 1.6em;
-  color: #333;
-  margin: 0.2em 0;
-}
-
-#menu #content p.instructions {
-  font-size: 1.3em;
-  font-weight: 600;
-  margin-bottom: 0.75em;
+  margin: 0.5em 0;
 }
 
 #menu #play_button {
   display: inline-block;
-  background-color: #34495e;
-  color: #fff;
+  background-color: rgba(52, 58, 125, 0.8);
+  color: #f2c641;
   border-radius: 0.9em;
   padding: 0.5em 1.5em;
-  font-weight: 600;
+  font-weight: bold;
   margin-top: 1em;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
   transition: all 0.4s;
 }
 
 #menu #play_button:hover {
-  background-color: #2323be;
-  color: #fff;
-  transform: scale(1.05);
+  background-color: rgba(52, 58, 125);
   cursor: pointer;
-  transition: all 0.4s;
-}
-
-#menu #play_button p {
-  font-family: 'Oswald';
-  letter-spacing: 0.125em;
-  color: white;
-  font-size: 1.3em;
-  transition: all 0.4s;
-}
-
-#menu #play_button:hover p {
-  color: #2323be;
-  transition: all 0.4s;
-  color: white;
-}
-
-#background_menu {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-
-  background-color: #111;
-  opacity: 0.125;
+  transform: scale(1.05);
 }
 
 canvas {
@@ -197,24 +193,6 @@ canvas {
   margin-bottom: 1em;
 }
 
-.title .stroke {
-  color: transparent;
-  -webkit-text-stroke: 2px #2323be;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  animation: fadeIn 2s ease-in;
-}
-
-.title .main {
-  position: relative;
-  z-index: 2;
-  color: #fff;
-  text-shadow: 2px 2px 0px #2323be, 4px 4px 0px rgba(0, 0, 0, 0.4);
-  animation: fadeIn 2s ease-in;
-}
-
 #starry_night_bg {
   position: fixed;
   top: 0;
@@ -227,6 +205,16 @@ canvas {
   z-index: -1;
   animation: panBg 30s linear infinite;
   background-attachment: fixed;
+}
+
+#starry_night_bg:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 @keyframes panBg {
@@ -276,11 +264,14 @@ canvas {
   position: fixed;
   bottom: 10px;
   right: 10px;
-  width: 150px;
-  background: rgba(255, 255, 255, 0.9);
+  width: 200px;
+  background-color: rgba(35, 35, 190, 0.8);
   border-radius: 10px;
   padding: 10px;
-  transition: max-height 0.3s;
+  color: white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+  transition: all 0.5s ease;
 }
 
 #info-header {
@@ -292,25 +283,104 @@ canvas {
 }
 
 #info-header h3 {
-  margin: 0;
-  font-size: 20px;
+  font-size: 1.5em;
   font-weight: bold;
+  margin: 0;
 }
 
 #info-header button {
-  background: none;
+  background-color: rgba(255, 255, 255, 0.8);
   border: none;
-  color: blue;
+  border-radius: 50%;
+  padding: 5px;
   cursor: pointer;
+  color: #2323be;
 }
 
 #info-content {
-  max-height: 500px;
-  overflow: auto;
-  transition: max-height 0.3s;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+
+#info-content p {
+  margin: 5px 0;
 }
 
 #info-panel.collapsed #info-content {
   max-height: 0;
   overflow: hidden;
+}
+
+#about-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 50px;
+  box-sizing: border-box;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+#about-overlay.show {
+  transform: translateY(0);
+}
+
+#about-overlay h1 {
+  margin-top: 0;
+}
+
+#close-about {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2em;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+}
+
+#about_button {
+  display: inline-block;
+  background-color: rgba(52, 58, 125, 0.8);
+  color: #f2c641;
+  border-radius: 30px;
+  padding: 0.5em 1.5em;
+  font-weight: bold;
+  margin: 0 auto; /* Centered the button */
+  transition: all 0.4s;
+  border: 2px solid #2323be;
+}
+
+#about_button:hover {
+  background-color: rgba(52, 58, 125);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+#audio_controls {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 2;  /* To make sure it shows up on top of other elements */
+}
+
+#audio_controls button {
+  display: block;
+  background-color: rgba(35, 37, 88, 0.8);
+  color: #f2c641;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#audio_controls button:hover {
+  background-color: rgba(52, 58, 125, 0.8);
 }
