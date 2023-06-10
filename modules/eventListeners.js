@@ -80,7 +80,7 @@ function onKeyDown(event, controls) {
     startAudio(); // start the audio guide
   }
 
-  if (event.key === 'h') {
+  if (event.key === 'p') {
     // if the "s" key is pressed
     stopAudio(); // stop the audio guide
   }
@@ -105,3 +105,12 @@ function onKeyUp(event, controls) {
     keysPressed[event.key] = false; // set to false when the key is released
   }
 }
+
+document.getElementById('toggle-info').addEventListener('click', () => {
+  document.getElementById('info-panel').classList.toggle('collapsed');
+  document.getElementById('toggle-info').innerText = document
+    .getElementById('info-panel')
+    .classList.contains('collapsed')
+    ? 'Show'
+    : 'Hide';
+});

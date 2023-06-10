@@ -271,3 +271,46 @@ canvas {
   margin: 0;
   font-size: 1.2em;
 }
+
+#info-panel {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  width: 150px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 10px;
+  transition: max-height 0.3s;
+}
+
+#info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+#info-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#info-header button {
+  background: none;
+  border: none;
+  color: blue;
+  cursor: pointer;
+}
+
+#info-content {
+  max-height: 500px;
+  overflow: auto;
+  transition: max-height 0.3s;
+}
+
+#info-panel.collapsed #info-content {
+  max-height: 0;
+  overflow: hidden;
+}
