@@ -23,6 +23,7 @@ to install all the dependencies.
 Then run:
 
 ```bash
+<<<<<<< HEAD
   cd src
 ```
 
@@ -31,6 +32,8 @@ to change path to src folder.
 Then run:
 
 ```bash
+=======
+>>>>>>> gh-pages
   npx vite
 ```
 
