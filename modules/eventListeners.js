@@ -75,12 +75,12 @@ function onKeyDown(event, controls) {
     togglePointerLock(controls); // toggle the pointer lock
   }
 
-  if (event.key === 'a') {
+  if (event.key === 'g') {
     // if the "a" key is pressed
     startAudio(); // start the audio guide
   }
 
-  if (event.key === 's') {
+  if (event.key === 'h') {
     // if the "s" key is pressed
     stopAudio(); // stop the audio guide
   }
