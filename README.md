@@ -23,14 +23,6 @@ to install all the dependencies.
 Then run:
 
 ```bash
-  cd src
-```
-
-to change path to src folder.
-
-Then run:
-
-```bash
   npx vite
 ```
 
