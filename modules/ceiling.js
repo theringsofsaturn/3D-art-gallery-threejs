@@ -7,7 +7,7 @@ export const createCeiling = (scene, textureLoader) => {
     "OfficeCeiling005_4K-JPG/OfficeCeiling005_4K_Color.jpg"
   );
   const displacementTexture = textureLoader.load(
-    "OfficeCeiling005_4K-JPG 2/OfficeCeiling005_4K_Displacement.jpg"
+    "OfficeCeiling005_4K-JPG/OfficeCeiling005_4K_Displacement.jpg"
   );
   const aoTexture = textureLoader.load(
     "OfficeCeiling005_4K-JPG/OfficeCeiling005_4K_AmbientOcclusion.jpg"

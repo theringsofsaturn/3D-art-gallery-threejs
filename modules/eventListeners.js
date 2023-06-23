@@ -1,6 +1,6 @@
-import { keysPressed } from './movement.js'; // import the keysPressed object
-import { showMenu, hideMenu } from './menu.js'; // import the showMenu function
-import { startAudio, stopAudio } from './audioGuide.js';
+import { keysPressed } from "./movement.js"; // import the keysPressed object
+import { showMenu, hideMenu } from "./menu.js"; // import the showMenu function
+import { startAudio, stopAudio } from "./audioGuide.js";
 
 let lockPointer = true;
 let showMenuOnUnlock = false;
@@ -9,17 +9,17 @@ let showMenuOnUnlock = false;
 export const setupEventListeners = (controls, camera, scene) => {
   // add the event listeners to the document which is the whole page
   document.addEventListener(
-    'keydown',
+    "keydown",
     (event) => onKeyDown(event, controls),
     false
   );
   document.addEventListener(
-    'keyup',
+    "keyup",
     (event) => onKeyUp(event, controls),
     false
   );
 
-  controls.addEventListener('unlock', () => {
+  controls.addEventListener("unlock", () => {
     if (showMenuOnUnlock) {
       showMenu();
     }
@@ -27,8 +27,8 @@ export const setupEventListeners = (controls, camera, scene) => {
   });
 
   // Add event listeners for the audio guide buttons
-  document.getElementById('start_audio').addEventListener('click', startAudio);
-  document.getElementById('stop_audio').addEventListener('click', stopAudio);
+  document.getElementById("start_audio").addEventListener("click", startAudio);
+  document.getElementById("stop_audio").addEventListener("click", stopAudio);
 };
 
 // toggle the pointer lock
@@ -49,7 +49,7 @@ function onKeyDown(event, controls) {
     keysPressed[event.key] = true; // if yes, set the value of the key pressed to true
   }
 
-  if (event.key === 'Escape') {
+  if (event.key === "Escape") {
     // if the "ESC" key is pressed
     showMenu(); // show the menu
     showMenuOnUnlock = true;
@@ -57,35 +57,36 @@ function onKeyDown(event, controls) {
     lockPointer = false;
   }
 
-  if (event.key === 'p') {
+  if (event.key === "p") {
     // if the "SPACE" key is pressed
     controls.unlock(); // unlock the pointer
     lockPointer = false;
   }
 
-  if (event.key === 'Enter') {
+  // if key prssed is enter or return for mac
+  if (event.key === "Enter" || event.key === "Return") {
     // if the "ENTER" key is pressed
     hideMenu(); // hide the menu
     controls.lock(); // lock the pointer
     lockPointer = true;
   }
 
-  if (event.key === ' ') {
+  if (event.key === " ") {
     // if the "p" key is pressed
     togglePointerLock(controls); // toggle the pointer lock
   }
 
-  if (event.key === 'g') {
+  if (event.key === "g") {
     // if the "a" key is pressed
     startAudio(); // start the audio guide
   }
 
-  if (event.key === 'p') {
+  if (event.key === "p") {
     // if the "s" key is pressed
     stopAudio(); // stop the audio guide
   }
 
-  if (event.key === 'm') {
+  if (event.key === "m") {
     // if the "h" key is pressed
     showMenu(); // show the menu
     showMenuOnUnlock = true;
@@ -93,7 +94,7 @@ function onKeyDown(event, controls) {
     lockPointer = false;
   }
 
-  if (event.key === 'r') {
+  if (event.key === "r") {
     // if the "r" key is pressed
     location.reload(); // reload the page
   }
@@ -106,19 +107,19 @@ function onKeyUp(event, controls) {
   }
 }
 
-document.getElementById('toggle-info').addEventListener('click', () => {
-  document.getElementById('info-panel').classList.toggle('collapsed');
-  document.getElementById('toggle-info').innerText = document
-    .getElementById('info-panel')
-    .classList.contains('collapsed')
-    ? 'Show'
-    : 'Hide';
+document.getElementById("toggle-info").addEventListener("click", () => {
+  document.getElementById("info-panel").classList.toggle("collapsed");
+  document.getElementById("toggle-info").innerText = document
+    .getElementById("info-panel")
+    .classList.contains("collapsed")
+    ? "Show"
+    : "Hide";
 });
 
-document.getElementById('about_button').addEventListener('click', function () {
-  document.getElementById('about-overlay').classList.add('show');
+document.getElementById("about_button").addEventListener("click", function () {
+  document.getElementById("about-overlay").classList.add("show");
 });
 
-document.getElementById('close-about').addEventListener('click', function () {
-  document.getElementById('about-overlay').classList.remove('show');
+document.getElementById("close-about").addEventListener("click", function () {
+  document.getElementById("about-overlay").classList.remove("show");
 });
