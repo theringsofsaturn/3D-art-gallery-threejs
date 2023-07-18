@@ -1,83 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="utf-8">
+  <head>
+    <meta charset="utf-8" />
 
     <title>3D Art Gallery</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
 
-</head>
-
-<body>
+  <body>
     <div id="menu">
+      <div id="img_container">
+        <div id="starry_night_bg"></div>
+      </div>
+      <div id="content_container">
+        <div id="content">
+          <div class="title">
+            <h1>3D Art Gallery</h1>
+          </div>
+          <div class="title-info">
+            <p>Welcome to an immersive 3D Art Gallery experience.</p>
+            <p>
+              Wander through the virtual gallery halls, and engage with a
+              variety of masterpieces, learning about their history and
+              significance.
+            </p>
+            <p>
+              Developed by Emilian Kasemi with a passion for bringing art to
+              life through technology.
+            </p>
+          </div>
 
-        <div id="img_container">
-            <div id="starry_night_bg"></div>
+          <div id="play_button">
+            <p>EXPLORE ART</p>
+          </div>
+          <div id="about_button_container">
+            <button id="about_button">ABOUT</button>
+          </div>
         </div>
-        <div id="content_container">
-            <div id="content">
-                <div class="title">
-                    <h1>3D Art Gallery</h1>
-                </div>
-                <div class="title-info">
-                    <p>Welcome to an immersive 3D Art Gallery experience.</p>
-                    <p>Wander through the virtual gallery halls, and engage with a variety of masterpieces, learning
-                        about their history and significance.</p>
-                    <p>Developed by Emilian Kasemi with a passion for bringing art to life through technology.</p>
-                </div>
-
-                <div id="play_button">
-                    <p>EXPLORE ART</p>
-                </div>
-                <div id="about_button_container">
-                    <button id="about_button">ABOUT</button>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
 
     <div id="about-overlay">
-        <button id="close-about">X</button>
-        <h1>About the 3D Art Gallery</h1>
-        <p>Welcome to our virtual 3D Art Gallery. Here, you can navigate through a variety of wonderful artworks and
-            learn about their history and significance.</p>
-        <p>This project is brought to you by Emilian Kasemi. We believe in the power of art to inspire,
-            provoke thought, and communicate across cultures and epochs. Our mission is to make art accessible to
-            everyone, regardless of location or background.</p>
-        <p>Feel free to explore and engage with the artworks. The gallery is best experienced in full-screen mode. For
-            optimal navigation, use the arrow keys or the W, A, S, and D keys. You can also use your mouse to change the
-            viewing direction. Additional information about the artworks will appear on your screen as you approach
-            them.</p>
+      <button id="close-about">X</button>
+      <h1>About the 3D Art Gallery</h1>
+      <p>
+        Welcome to our virtual 3D Art Gallery. Here, you can navigate through a
+        variety of wonderful artworks and learn about their history and
+        significance.
+      </p>
+      <p>
+        This project is brought to you by Emilian Kasemi. We believe in the
+        power of art to inspire, provoke thought, and communicate across
+        cultures and epochs. Our mission is to make art accessible to everyone,
+        regardless of location or background.
+      </p>
+      <p>
+        Feel free to explore and engage with the artworks. The gallery is best
+        experienced in full-screen mode. For optimal navigation, use the arrow
+        keys or the W, A, S, and D keys. You can also use your mouse to change
+        the viewing direction. Additional information about the artworks will
+        appear on your screen as you approach them.
+      </p>
     </div>
 
     <div id="info-panel">
-        <div id="info-header">
-            <h3>Controls</h3>
-            <button id="toggle-info">Hide</button>
-        </div>
-        <div id="info-content">
-            <p><b>W/A/S/D:</b> Move around</p>
-            <p><b>Mouse:</b> Look around</p>
-            <p><b>Space:</b> Toggle pointer lock</p>
-            <p><b>M:</b> Show Menu</p>
-            <p><b>Enter:</b> Start exploration</p>
-            <p><b>Esc:</b> Stop exploration</p>
-            <p><b>G:</b> Start audio guide</p>
-            <p><b>P:</b> Stop audio guide</p>
-        </div>
+      <div id="info-header">
+        <h3>Controls</h3>
+        <button id="toggle-info">Hide</button>
+      </div>
+      <div id="info-content">
+        <p><b>W/A/S/D:</b> Move around</p>
+        <p><b>Mouse:</b> Look around</p>
+        <p><b>Space:</b> Toggle pointer lock</p>
+        <p><b>M:</b> Show Menu</p>
+        <p><b>Enter:</b> Start exploration</p>
+        <p><b>Esc:</b> Stop exploration</p>
+        <p><b>G:</b> Start audio guide</p>
+        <p><b>P:</b> Stop audio guide</p>
+      </div>
     </div>
 
     <div id="audio_controls">
-        <button id="start_audio">Start Audio Guide</button>
-        <button id="stop_audio">Stop Audio Guide</button>
+      <button id="start_audio">Start Audio Guide</button>
+      <button id="stop_audio">Stop Audio Guide</button>
     </div>
 
     <div id="painting-info"></div>
 
     <script type="module" src="/main.js"></script>
-
-</body>
-
+  </body>
 </html>

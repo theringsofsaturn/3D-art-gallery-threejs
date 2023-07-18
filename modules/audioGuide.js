@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
 let sound;
 let bufferLoaded = false; // flag to track if audio buffer is loaded
@@ -12,7 +12,7 @@ export const setupAudio = (camera) => {
   sound = new THREE.Audio(listener); // creating the audio source
 
   const audioLoader = new THREE.AudioLoader(); // create an audio loader
-  audioLoader.load('sounds/tiersen.mp3', function (buffer) {
+  audioLoader.load("sounds/tiersen.mp3", function (buffer) {
     // load the audio file
     sound.setBuffer(buffer); // set the audio source buffer
     sound.setLoop(true); // set the audio source to loop

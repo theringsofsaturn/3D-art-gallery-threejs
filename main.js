@@ -1,17 +1,18 @@
-import * as THREE from 'three';
-import { scene, setupScene } from './modules/scene.js';
-import { createPaintings } from './modules/paintings.js';
-import { createWalls } from './modules/walls.js';
-import { setupLighting } from './modules/lighting.js';
-import { setupFloor } from './modules/floor.js';
-import { createCeiling } from './modules/ceiling.js';
-import { createBoundingBoxes } from './modules/boundingBox.js';
-import { setupRendering } from './modules/rendering.js';
-import { setupEventListeners } from './modules/eventListeners.js';
-import { addObjectsToScene } from './modules/sceneHelpers.js';
-import { setupPlayButton } from './modules/menu.js';
-import { setupAudio } from './modules/audioGuide.js';
-import { clickHandling } from './modules/clickHandling.js';
+import * as THREE from "three";
+import { scene, setupScene } from "./modules/scene.js";
+import { createPaintings } from "./modules/paintings.js";
+import { createWalls } from "./modules/walls.js";
+import { setupLighting } from "./modules/lighting.js";
+import { setupFloor } from "./modules/floor.js";
+import { createCeiling } from "./modules/ceiling.js";
+import { createBoundingBoxes } from "./modules/boundingBox.js";
+import { setupRendering } from "./modules/rendering.js";
+import { setupEventListeners } from "./modules/eventListeners.js";
+import { addObjectsToScene } from "./modules/sceneHelpers.js";
+import { setupPlayButton } from "./modules/menu.js";
+import { setupAudio } from "./modules/audioGuide.js";
+import { clickHandling } from "./modules/clickHandling.js";
+import { VRButton } from "three/examples/jsm/webxr/VRButton.js";
 
 let { camera, controls, renderer } = setupScene();
 
@@ -34,6 +35,10 @@ setupPlayButton(controls);
 
 setupEventListeners(controls);
 
+clickHandling(renderer, camera, paintings);
+
 setupRendering(scene, camera, renderer, paintings, controls, walls);
 
-clickHandling(renderer, camera, paintings);
+renderer.xr.enabled = true;
+
+document.body.appendChild(VRButton.createButton(renderer));
