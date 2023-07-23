@@ -38,9 +38,9 @@ You'll see the URL address and the info help. Like for example:
 
 Click the URL and see your project live :)
 
-![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1683560968/random/gallery2_c0egyt.png)
+![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1690132741/Games/Screenshot_2023-07-23_at_7.18.36_PM_yst8tn.png)
 
-![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1683560740/random/gallery_elivqp.png)
+![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1690132828/Games/Screenshot_2023-07-23_at_7.20.10_PM_zobfoa.png)
 
 ## YouTube Video
 

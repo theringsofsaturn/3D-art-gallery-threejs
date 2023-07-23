@@ -41,4 +41,12 @@ setupRendering(scene, camera, renderer, paintings, controls, walls);
 
 renderer.xr.enabled = true;
 
+renderer.xr.addEventListener("sessionstart", () => {
+  console.log("WebXR session started");
+});
+
+renderer.xr.addEventListener("sessionend", () => {
+  console.log("WebXR session ended");
+});
+
 document.body.appendChild(VRButton.createButton(renderer));
