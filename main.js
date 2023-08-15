@@ -12,7 +12,7 @@ import { addObjectsToScene } from "./modules/sceneHelpers.js";
 import { setupPlayButton } from "./modules/menu.js";
 import { setupAudio } from "./modules/audioGuide.js";
 import { clickHandling } from "./modules/clickHandling.js";
-import { VRButton } from "three/examples/jsm/webxr/VRButton.js";
+import { setupVR } from "./modules/VRSupport.js";
 
 let { camera, controls, renderer } = setupScene();
 
@@ -39,14 +39,4 @@ clickHandling(renderer, camera, paintings);
 
 setupRendering(scene, camera, renderer, paintings, controls, walls);
 
-renderer.xr.enabled = true;
-
-renderer.xr.addEventListener("sessionstart", () => {
-  console.log("WebXR session started");
-});
-
-renderer.xr.addEventListener("sessionend", () => {
-  console.log("WebXR session ended");
-});
-
-document.body.appendChild(VRButton.createButton(renderer));
+setupVR(renderer);
