@@ -2,6 +2,14 @@
 
 I made this live coding tutorial about "how to create an interactive 3D Art Gallery using Three.js". This project is perfect for artists or designers to exhibit their artwork portfolios or projects. The full tutorial is almost 8 hours long, and is divided into parts. Please consider subscribing to my YouTube channel if you are interested.
 
+## UPDATE!
+Dear followers and enthusiasts,
+
+I've been made aware of an issue many of you faced regarding the floor and ceiling textures appearing black. After a thorough investigation, I've identified the root of the problem. The high-resolution 4K textures we recently introduced are relatively large files. To manage such large files, GitHub uses a system called Large File Storage (LFS). However, there's a storage quota associated with LFS, and it seems we've reached that limit. This led to the textures not being stored correctly, resulting in broken image links in the downloaded projects.
+
+The solution at the moment: I uploaded the project with the correct 4K images on my Google Drive, and you can download it from this link:
+https://drive.google.com/file/d/1nctBrORmSZe_O5aSxvBQ9C-XBKgip4bq/view?usp=drive_link
+
 ## Installation
 
 You need Node.js installed on your computer.
@@ -38,13 +46,15 @@ You'll see the URL address and the info help. Like for example:
 
 Click the URL and see your project live :)
 
-![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1690133933/Games/Screenshot_2023-07-23_at_7.18.36_PM_bp1bog.png)
+
+![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1693179107/Games/art-gallery-min_aa3ghf.png)
 
 ![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1690132828/Games/Screenshot_2023-07-23_at_7.20.10_PM_zobfoa.png)
 
 ## YouTube Video
 
 [Click here!](https://youtu.be/vfMizAmPprs)
+
 
 ## Authors
 
