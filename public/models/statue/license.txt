@@ -1,0 +1,11 @@
+Model Information:
+* title:	100.KZ.11 Aphrodite Kallipygos Statuette
+* source:	https://sketchfab.com/3d-models/100kz11-aphrodite-kallipygos-statuette-c01ba617ec83491195146583b70e3df9
+* author:	Ancient World 3D (https://sketchfab.com/ancientworld3d)
+
+Model License:
+* license type:	CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)
+* requirements:	Author must be credited. No commercial use. Modified versions must have the same license.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "100.KZ.11 Aphrodite Kallipygos Statuette" (https://sketchfab.com/3d-models/100kz11-aphrodite-kallipygos-statuette-c01ba617ec83491195146583b70e3df9) by Ancient World 3D (https://sketchfab.com/ancientworld3d) licensed under CC-BY-NC-SA-4.0 (http://creativecommons.org/licenses/by-nc-sa/4.0/)

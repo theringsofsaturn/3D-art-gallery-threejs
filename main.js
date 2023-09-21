@@ -13,6 +13,7 @@ import { setupPlayButton } from "./modules/menu.js";
 import { setupAudio } from "./modules/audioGuide.js";
 import { clickHandling } from "./modules/clickHandling.js";
 import { setupVR } from "./modules/VRSupport.js";
+import { loadStatueModel } from "./modules/statue.js";
 
 let { camera, controls, renderer } = setupScene();
 
@@ -38,5 +39,7 @@ setupEventListeners(controls);
 clickHandling(renderer, camera, paintings);
 
 setupRendering(scene, camera, renderer, paintings, controls, walls);
+
+loadStatueModel(scene);
 
 setupVR(renderer);

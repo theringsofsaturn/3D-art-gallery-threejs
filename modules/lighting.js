@@ -1,5 +1,5 @@
 // lighting.js
-import * as THREE from 'three';
+import * as THREE from "three";
 
 // add paintings as a parameter that will be passed in from main.js where setupLighting is called
 export const setupLighting = (scene, paintings) => {
@@ -41,12 +41,23 @@ export const setupLighting = (scene, paintings) => {
   );
   const spotlight4 = createSpotlight(10, 20, 0, 2, new THREE.Vector3(20, 2, 0));
 
+  // Add a spotlight focused on the statue
+  const statueSpotlight = createSpotlight(
+    0,
+    10,
+    0,
+    1,
+    new THREE.Vector3(0, -4.2, 0)
+  );
+
   // Add spotlights to scene
-  scene.add(spotlight1, spotlight2, spotlight3, spotlight4);
+  scene.add(spotlight1, spotlight2, spotlight3, spotlight4, statueSpotlight);
+
   scene.add(
     spotlight1.target,
     spotlight2.target,
     spotlight3.target,
-    spotlight4.target
+    spotlight4.target,
+    statueSpotlight.target
   );
 };

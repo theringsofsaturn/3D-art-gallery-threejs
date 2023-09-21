@@ -1,6 +1,6 @@
-import * as THREE from 'three';
-import { displayPaintingInfo, hidePaintingInfo } from './paintingInfo.js';
-import { updateMovement } from './movement.js';
+import * as THREE from "three";
+import { displayPaintingInfo, hidePaintingInfo } from "./paintingInfo.js";
+import { updateMovement } from "./movement.js";
 
 export const setupRendering = (
   scene,
@@ -36,6 +36,9 @@ export const setupRendering = (
     } else {
       hidePaintingInfo(); // otherwise hide the painting info
     }
+
+    renderer.gammaOutput = true;
+    renderer.gammaFactor = 2.2;
 
     renderer.render(scene, camera); // render the scene
     requestAnimationFrame(render); // it calls the render function again, so it runs over and over
