@@ -13,7 +13,7 @@ export const loadStatueModel = (scene) => {
       console.log("STATUE", statue);
 
       // Position the statue at the center of the floor
-      statue.position.set(0, -3.2, 0); 
+      statue.position.set(0, -3.2, 0);
 
       // Scale if necessary
       statue.scale.set(0.06, 0.06, 0.06);
@@ -29,6 +29,8 @@ export const loadStatueModel = (scene) => {
           console.log("Material:", child.material);
         }
       });
+
+      statue.castShadow = true;
 
       // Add the statue to the scene
       scene.add(statue);
