@@ -23,14 +23,14 @@ export const loadStatueModel = (scene) => {
         if (child.isMesh) {
           map: child.material.map,
             // Modify child.material here to improve appearance
-            // For example, set the metalness and roughness
-            //   child.material.metalness = 0.9;
-            (child.material.roughness = 0.1);
+            (child.material.metalness = 0.0),
+            (child.material.roughness = 0.2),
+            // Cast shadow
+            (child.castShadow = true);
+
           console.log("Material:", child.material);
         }
       });
-
-      statue.castShadow = true;
 
       // Add the statue to the scene
       scene.add(statue);

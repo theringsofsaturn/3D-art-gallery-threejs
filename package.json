@@ -9,6 +9,7 @@
     "ammo.js": "^0.0.10",
     "ammojs-typed": "^1.0.6",
     "cannon": "^0.6.2",
+    "lil-gui": "^0.18.2",
     "three": "^0.151.3",
     "three-stdlib": "^2.21.8"
   },
