@@ -3,6 +3,7 @@
 I made this live coding tutorial about "how to create an interactive 3D Art Gallery using Three.js". This project is perfect for artists or designers to exhibit their artwork portfolios or projects. The full tutorial is almost 8 hours long, and is divided into parts. Please consider subscribing to my YouTube channel if you are interested.
 
 ## UPDATE!
+
 Dear followers and enthusiasts,
 
 I've been made aware of an issue many of you faced regarding the floor and ceiling textures appearing black. After a thorough investigation, I've identified the root of the problem. The high-resolution 4K textures we recently introduced are relatively large files. To manage such large files, GitHub uses a system called Large File Storage (LFS). However, there's a storage quota associated with LFS, and it seems we've reached that limit. This led to the textures not being stored correctly, resulting in broken image links in the downloaded projects.
@@ -10,7 +11,7 @@ I've been made aware of an issue many of you faced regarding the floor and ceili
 The solution at the moment:  
 Download the 4K textures and the 3D models yourself and add them in your project woth the correct path.
 
-The Office Ceiling material in 4K: 
+The Office Ceiling material in 4K:
 https://ambientcg.com/view?id=OfficeCeiling005
 
 The Wood Floor in 4K:
@@ -58,15 +59,15 @@ You'll see the URL address and the info help. Like for example:
 
 Click the URL and see your project live :)
 
-
 ![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1693179107/Games/art-gallery-min_aa3ghf.png)
 
 ![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1690132828/Games/Screenshot_2023-07-23_at_7.20.10_PM_zobfoa.png)
 
+![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1706205485/Games/Screenshot_2024-01-25_at_6.49.56_PM_hrftmt.png)
+
 ## YouTube Video
 
 [Click here!](https://youtu.be/vfMizAmPprs)
-
 
 ## Authors
 
