@@ -63,7 +63,7 @@ Click the URL and see your project live :)
 
 ![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1690132828/Games/Screenshot_2023-07-23_at_7.20.10_PM_zobfoa.png)
 
-![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1706205485/Games/Screenshot_2024-01-25_at_6.49.56_PM_hrftmt.png)
+![App Screenshot](https://asset.cloudinary.com/dqiyjy9ye/76cd2658250b916210d550e0383d357c)
 
 ## YouTube Video
 
