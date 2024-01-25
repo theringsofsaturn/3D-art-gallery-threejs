@@ -63,7 +63,8 @@ Click the URL and see your project live :)
 
 ![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1690132828/Games/Screenshot_2023-07-23_at_7.20.10_PM_zobfoa.png)
 
-![App Screenshot](https://asset.cloudinary.com/dqiyjy9ye/76cd2658250b916210d550e0383d357c)
+<img width="1712" alt="Screenshot 2024-01-25 at 6 49 56 PM" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/a3003232-af2a-49fa-bc25-57419a8acd5d">
+
 
 ## YouTube Video
 
