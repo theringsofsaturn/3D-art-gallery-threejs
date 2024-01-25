@@ -10,7 +10,7 @@ export const loadStatueModel = (scene) => {
     (gltf) => {
       const statue = gltf.scene;
 
-      console.log("STATUE", statue);
+      // console.log("STATUE", gltf);
 
       // Position the statue at the center of the floor
       statue.position.set(0, -3.2, 0);
@@ -28,7 +28,7 @@ export const loadStatueModel = (scene) => {
             // Cast shadow
             (child.castShadow = true);
 
-          console.log("Material:", child.material);
+          // console.log("Statue Material:", child.material);
         }
       });
 

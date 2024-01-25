@@ -14,6 +14,8 @@ import { setupAudio } from "./modules/audioGuide.js";
 import { clickHandling } from "./modules/clickHandling.js";
 import { setupVR } from "./modules/VRSupport.js";
 import { loadStatueModel } from "./modules/statue.js";
+import { loadBenchModel } from "./modules/bench.js";
+import { loadCeilingLampModel } from "./modules/ceilingLamp.js";
 
 let { camera, controls, renderer } = setupScene();
 
@@ -41,5 +43,9 @@ clickHandling(renderer, camera, paintings);
 setupRendering(scene, camera, renderer, paintings, controls, walls);
 
 loadStatueModel(scene);
+
+loadBenchModel(scene);
+
+loadCeilingLampModel(scene);
 
 setupVR(renderer);

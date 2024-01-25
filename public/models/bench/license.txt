@@ -1,0 +1,11 @@
+Model Information:
+* title:	Modern Bench 1
+* source:	https://sketchfab.com/3d-models/modern-bench-1-caa4515e36444e4c8c100296463e83c1
+* author:	Elasta Kristya (https://sketchfab.com/luca3d)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Modern Bench 1" (https://sketchfab.com/3d-models/modern-bench-1-caa4515e36444e4c8c100296463e83c1) by Elasta Kristya (https://sketchfab.com/luca3d) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
