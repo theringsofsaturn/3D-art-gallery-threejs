@@ -61,6 +61,7 @@ You'll see the URL address and the info help. Like for example:
 
 <img width="1722" alt="Screenshot 2024-03-22 at 18 14 41" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/ed5e7a7e-f27d-4904-8c1b-aa2d1420bfe9">
 
+<img width="1722" alt="Screenshot 2024-03-22 at 18 51 31" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/fa5a0ec3-5879-4a01-bd67-f5abaefad6bf">
 
 
 
