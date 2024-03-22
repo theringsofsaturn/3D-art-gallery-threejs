@@ -57,13 +57,12 @@ You'll see the URL address and the info help. Like for example:
   ➜  Network: use --host to expose  ➜  press h to show help
 ```
 
-Click the URL and see your project live :)
+<img width="1722" alt="Screenshot 2024-03-22 at 18 14 02" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/82bb7a69-2d75-4acf-b16f-b1fd67322c4c">
 
-![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1693179107/Games/art-gallery-min_aa3ghf.png)
+<img width="1722" alt="Screenshot 2024-03-22 at 18 14 41" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/ed5e7a7e-f27d-4904-8c1b-aa2d1420bfe9">
 
-![App Screenshot](https://res.cloudinary.com/dqiyjy9ye/image/upload/v1690132828/Games/Screenshot_2023-07-23_at_7.20.10_PM_zobfoa.png)
 
-<img width="1712" alt="Screenshot 2024-01-25 at 6 49 56 PM" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/a3003232-af2a-49fa-bc25-57419a8acd5d">
+
 
 
 ## YouTube Video
