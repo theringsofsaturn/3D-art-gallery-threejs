@@ -57,9 +57,12 @@ You'll see the URL address and the info help. Like for example:
   ➜  Network: use --host to expose  ➜  press h to show help
 ```
 
-<img width="1722" alt="Screenshot 2024-03-22 at 18 14 02" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/82bb7a69-2d75-4acf-b16f-b1fd67322c4c">
+<img width="1717" alt="Screenshot 2024-03-23 at 23 03 41" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/8e7e4ae5-9b7a-4baa-849c-7f9c8eb349c8">
 
-<img width="1722" alt="Screenshot 2024-03-22 at 18 14 41" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/ed5e7a7e-f27d-4904-8c1b-aa2d1420bfe9">
+<img width="1717" alt="Screenshot 2024-03-23 at 23 01 41" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/f37cf94d-cafc-42a3-9ab6-def46caa15fa">
+
+<img width="1722" alt="Screenshot 2024-03-23 at 20 16 09" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/04073dc7-56ae-468f-abee-2053e3c6f965">
+
 
 <img width="1722" alt="Screenshot 2024-03-22 at 18 51 31" src="https://github.com/theringsofsaturn/3D-art-gallery/assets/60050952/fa5a0ec3-5879-4a01-bd67-f5abaefad6bf">
 
