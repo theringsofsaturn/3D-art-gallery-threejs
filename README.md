@@ -2,6 +2,17 @@
 
 I made this live coding tutorial about "how to create an interactive 3D Art Gallery using Three.js". This project is perfect for artists or designers to exhibit their artwork portfolios or projects. The full tutorial is almost 8 hours long, and is divided into parts. Please consider subscribing to my YouTube channel if you are interested.
 
+## HELP!
+First of all, use GitHub commits to mark our progress, so you can easily follow along and see the project evolve. So, to use the initial exact Three.js module I am using, go to "Commits" section of the GitHub repository and scroll down to the first commits, and download that version of the code, then step by step review and compare the other versions of the code. 
+If you don't know how to do that, follow these instructions:
+
+Go to my repository, click "commits", you will see all the commits list. Then scroll down to the first commit. On the right side of each commit name, you will see three small icons:
+- a code number --> which if you hover on it says "view commit details". 
+- a two square icon --> which if you hover says "view full SHA" 
+- '< >' this icon --> which if you hover on says "browse repository at this point". 
+
+Click this last icon I mentioned, '< >'. You will be redirected to the exact point in time of this project. You can then download the repository as you normally do with the green button "Code". 
+
 ## UPDATE!
 
 Dear followers and enthusiasts,
