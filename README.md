@@ -20,7 +20,7 @@ Dear followers and enthusiasts,
 I've been made aware of an issue many of you faced regarding the floor and ceiling textures appearing black. After a thorough investigation, I've identified the root of the problem. The high-resolution 4K textures we recently introduced are relatively large files. To manage such large files, GitHub uses a system called Large File Storage (LFS). However, there's a storage quota associated with LFS, and it seems we've reached that limit. This led to the textures not being stored correctly, resulting in broken image links in the downloaded projects.
 
 The solution at the moment:  
-Download the 4K textures and the 3D models yourself and add them in your project woth the correct path.
+Download the 4K textures (or 2K /1K for better performance. I am currently using the 1K textures) and the 3D models yourself and add them in your project woth the correct path.
 
 The Office Ceiling material in 4K:
 https://ambientcg.com/view?id=OfficeCeiling005
